@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "HJAlertViewChain.h"
+
 @interface ViewController ()
 
 @end
@@ -16,12 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    [self p_testAlert];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+
+#pragma mark - Init
+
+- (void)p_testAlert
+{
+    HJAlertViewChain *alertViewChain = [[HJAlertViewChain alloc] init];
+    [alertViewChain addButtonWithTitle:@"Test"];
+    alertViewChain.clickedButtonAtIndex = ^ (UIAlertView *alertView, NSInteger buttonIndex) {
+        NSLog(@"======>>>");
+    };
+    [alertViewChain show];
+}
+
 
 @end

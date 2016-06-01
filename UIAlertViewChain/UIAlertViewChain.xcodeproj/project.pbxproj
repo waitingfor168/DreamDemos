@@ -13,6 +13,7 @@
 		D2597C351CFDB172007488E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2597C331CFDB172007488E9 /* Main.storyboard */; };
 		D2597C371CFDB172007488E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2597C361CFDB172007488E9 /* Assets.xcassets */; };
 		D2597C3A1CFDB172007488E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2597C381CFDB172007488E9 /* LaunchScreen.storyboard */; };
+		D2597C441CFDB237007488E9 /* HJAlertViewChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D2597C431CFDB237007488E9 /* HJAlertViewChain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D2597C361CFDB172007488E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2597C391CFDB172007488E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2597C3B1CFDB172007488E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2597C421CFDB237007488E9 /* HJAlertViewChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJAlertViewChain.h; sourceTree = "<group>"; };
+		D2597C431CFDB237007488E9 /* HJAlertViewChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJAlertViewChain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		D2597C291CFDB172007488E9 /* UIAlertViewChain */ = {
 			isa = PBXGroup;
 			children = (
+				D2597C411CFDB211007488E9 /* HJAlertViewChain */,
 				D2597C2D1CFDB172007488E9 /* AppDelegate.h */,
 				D2597C2E1CFDB172007488E9 /* AppDelegate.m */,
 				D2597C301CFDB172007488E9 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				D2597C2B1CFDB172007488E9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2597C411CFDB211007488E9 /* HJAlertViewChain */ = {
+			isa = PBXGroup;
+			children = (
+				D2597C421CFDB237007488E9 /* HJAlertViewChain.h */,
+				D2597C431CFDB237007488E9 /* HJAlertViewChain.m */,
+			);
+			path = HJAlertViewChain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +118,7 @@
 		D2597C1F1CFDB172007488E9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HJ;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = whj;
 				TargetAttributes = {
@@ -150,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2597C321CFDB172007488E9 /* ViewController.m in Sources */,
+				D2597C441CFDB237007488E9 /* HJAlertViewChain.m in Sources */,
 				D2597C2F1CFDB172007488E9 /* AppDelegate.m in Sources */,
 				D2597C2C1CFDB172007488E9 /* main.m in Sources */,
 			);
