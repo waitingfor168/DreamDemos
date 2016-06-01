@@ -31,7 +31,7 @@
 
 - (void)p_testAlert
 {
-    HJAlertViewChain *alertViewChain = [[HJAlertViewChain alloc] init];
+    HJAlertViewChain *alertViewChain = [HJAlertViewChain instance];
     [alertViewChain addButtonWithTitle:@"Test"];
     alertViewChain.clickedButtonAtIndex = ^ (UIAlertView *alertView, NSInteger buttonIndex) {
         NSLog(@"======>>>");

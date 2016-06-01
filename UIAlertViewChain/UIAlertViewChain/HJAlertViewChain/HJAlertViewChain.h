@@ -26,4 +26,11 @@ typedef BOOL (^AlertViewShouldEnableFirstOtherButton)(UIAlertView *alertView);
 @property (nonatomic, strong) WillDismissWithButtonIndex willDismissWithButtonIndex;
 @property (nonatomic, strong) AlertViewShouldEnableFirstOtherButton alertViewShouldEnableFirstOtherButton;
 
+/**
+ *  实例化一个对象
+ *
+ *  @return 对象
+ */
++ (instancetype)instance;
+
 @end

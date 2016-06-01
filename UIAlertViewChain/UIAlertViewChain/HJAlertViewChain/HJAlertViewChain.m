@@ -14,6 +14,11 @@
 
 @implementation HJAlertViewChain
 
++ (instancetype)instance
+{
+    return [[HJAlertViewChain alloc] init];
+}
+
 - (instancetype)init
 {
     self = [super init];
