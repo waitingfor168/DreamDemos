@@ -14,6 +14,10 @@
 
 @implementation HJAlertViewChain
 
+@synthesize addTitle = _addTitle;
+@synthesize addMessage = _addMessage;
+//@synthesize addDelegate = _addDelegate;
+
 + (instancetype)instance
 {
     return [[HJAlertViewChain alloc] init];
@@ -28,7 +32,11 @@
     return self;
 }
 
-#pragma mark - OverWrite
+#pragma mark - UIAlertView OverWrite
+
+
+
+#pragma mark - UIAlertViewDelegate OverWrite
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -78,6 +86,42 @@
         return _alertViewShouldEnableFirstOtherButton(alertView);
     }
     return YES;
+}
+
+#pragma mark - UIAlertView Extension
+
+//- (Content)addDelegate
+//{
+//    return [self p_object:_addDelegate content:@"delegate"];
+//}
+
+- (Content)addTitle
+{
+    return [self p_object:_addMessage content:@"title"];
+}
+
+- (Content)addMessage
+{
+    return [self p_object:_addMessage content:@"message"];
+}
+
+#pragma mark - Unit
+
+- (Content)p_object:(Content)content content:(NSString *)key
+{
+    if (content == nil) {
+        
+        __weak typeof(self) weakSelf = self;
+        
+        content = ^(NSString * text) {
+            
+            [weakSelf setValue:text forKey:key];
+            
+            return weakSelf;
+        };
+    }
+    
+    return content;
 }
 
 @end
