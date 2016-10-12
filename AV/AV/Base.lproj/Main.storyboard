@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rj7-Sh-K3G">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="xBl-Xg-PwS">
+            <objects>
+                <navigationController id="Rj7-Sh-K3G" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EcI-Os-hWr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TU8-b1-0x8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nsS-4R-TCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-571" y="452"/>
+        </scene>
+        <!--AV-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AVDRootVC" customModule="AV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QR-tn-658">
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="YtG-XJ-USA"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ojj-hR-8gn"/>
+                                    <segue destination="P7t-Np-D1I" kind="show" id="Jnh-2M-dch"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQD-92-Kpj">
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Receive"/>
+                                <connections>
+                                    <action selector="receiveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nqd-E8-8Rt"/>
+                                    <segue destination="6ja-Zw-cgs" kind="show" id="7E2-dp-YOg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0QR-tn-658" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="94" id="2ID-mO-g46"/>
+                            <constraint firstItem="WQD-92-Kpj" firstAttribute="top" secondItem="0QR-tn-658" secondAttribute="bottom" constant="15" id="53r-uG-HTs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0QR-tn-658" secondAttribute="trailing" id="5rf-RQ-jJh"/>
+                            <constraint firstItem="0QR-tn-658" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="B5L-oR-36A"/>
+                            <constraint firstItem="WQD-92-Kpj" firstAttribute="width" secondItem="0QR-tn-658" secondAttribute="width" id="ToT-xE-gSA"/>
+                            <constraint firstItem="WQD-92-Kpj" firstAttribute="leading" secondItem="0QR-tn-658" secondAttribute="leading" id="Yxk-FO-Cfn"/>
+                            <constraint firstItem="WQD-92-Kpj" firstAttribute="height" secondItem="0QR-tn-658" secondAttribute="height" id="qSO-8Q-oau"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="AV" id="f1E-0e-18M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="452"/>
+        </scene>
+        <!--Send-->
+        <scene sceneID="ahm-ht-nHM">
+            <objects>
+                <viewController id="P7t-Np-D1I" customClass="AVDSendVC" customModule="AV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tZE-Vf-art"/>
+                        <viewControllerLayoutGuide type="bottom" id="V2F-fb-Cv7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J7H-Xb-2f8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPk-y8-GW4">
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="WVs-mF-3Fs"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startAction:" destination="P7t-Np-D1I" eventType="touchUpInside" id="UDe-Fn-pdj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HPk-y8-GW4" firstAttribute="leading" secondItem="J7H-Xb-2f8" secondAttribute="leadingMargin" id="2nQ-xm-Gat"/>
+                            <constraint firstItem="HPk-y8-GW4" firstAttribute="top" secondItem="tZE-Vf-art" secondAttribute="bottom" constant="100" id="bQL-Jr-Ek9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HPk-y8-GW4" secondAttribute="trailing" id="kUo-fF-Ymx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Send" id="QGK-Fo-96x"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ag-yn-Us1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="137"/>
+        </scene>
+        <!--Receive-->
+        <scene sceneID="iqz-p4-Yeg">
+            <objects>
+                <viewController id="6ja-Zw-cgs" customClass="AVDReceiveVC" customModule="AV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vf8-Rq-xMX"/>
+                        <viewControllerLayoutGuide type="bottom" id="DOo-du-Buy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iBQ-T3-8PZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="np8-mT-MbN">
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="hjQ-wa-Cam"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startAction:" destination="6ja-Zw-cgs" eventType="touchUpInside" id="bZn-oc-12f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="np8-mT-MbN" secondAttribute="trailing" id="Nnd-cN-nki"/>
+                            <constraint firstItem="np8-mT-MbN" firstAttribute="top" secondItem="vf8-Rq-xMX" secondAttribute="bottom" constant="100" id="man-yT-3bN"/>
+                            <constraint firstItem="np8-mT-MbN" firstAttribute="leading" secondItem="iBQ-T3-8PZ" secondAttribute="leadingMargin" id="ytw-22-Vpr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Receive" id="Qso-1t-SZ0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GtG-VP-wFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="793" y="798"/>
+        </scene>
+    </scenes>
+</document>
