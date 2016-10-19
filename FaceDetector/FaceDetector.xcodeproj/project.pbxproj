@@ -14,6 +14,7 @@
 		D208A9451DB7197800B2D7D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D208A9441DB7197800B2D7D9 /* Assets.xcassets */; };
 		D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */; };
 		D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */; };
+		D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9531DB7583E00B2D7D9 /* CanvasView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		D208A9491DB7197800B2D7D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetectorViewController.h; sourceTree = "<group>"; };
 		D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceDetectorViewController.m; sourceTree = "<group>"; };
+		D208A9521DB7583E00B2D7D9 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		D208A9531DB7583E00B2D7D9 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				D208A93C1DB7197800B2D7D9 /* AppDelegate.m */,
 				D208A93E1DB7197800B2D7D9 /* ViewController.h */,
 				D208A93F1DB7197800B2D7D9 /* ViewController.m */,
+				D208A9521DB7583E00B2D7D9 /* CanvasView.h */,
+				D208A9531DB7583E00B2D7D9 /* CanvasView.m */,
 				D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */,
 				D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */,
 				D208A9411DB7197800B2D7D9 /* Main.storyboard */,
@@ -160,6 +165,7 @@
 				D208A93D1DB7197800B2D7D9 /* AppDelegate.m in Sources */,
 				D208A93A1DB7197800B2D7D9 /* main.m in Sources */,
 				D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */,
+				D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

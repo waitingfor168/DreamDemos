@@ -8,6 +8,7 @@
 
 #import "FaceDetectorViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CanvasView.h"
 
 @interface FaceDetectorViewController () <AVCaptureVideoDataOutputSampleBufferDelegate> {
 
@@ -26,6 +27,9 @@
 @property (nonatomic, strong) AVCaptureDeviceInput *captureDeviceInput;
 @property (nonatomic, strong) AVCaptureVideoDataOutput *captureVideoDataOutput;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
+
+@property (nonatomic, strong) CanvasView *canvasView;
+@property (nonatomic, strong) NSMutableArray *facePoints;
 
 @end
 
@@ -76,10 +80,18 @@
     NSDictionary *detectorOptions = @{CIDetectorAccuracy : CIDetectorAccuracyLow};
     self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
     
-    self.captureVideoPreviewLayer.frame= self.view.frame;
-    self.captureVideoPreviewLayer.position=self.view.center;
+    self.captureVideoPreviewLayer.frame = self.view.frame;
+    self.captureVideoPreviewLayer.position = self.view.center;
     self.captureVideoPreviewLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;
     [self.view.layer addSublayer:self.captureVideoPreviewLayer];
+    
+    self.canvasView = [[CanvasView alloc] initWithFrame:self.view.frame];
+    self.canvasView.backgroundColor = [UIColor clearColor];
+    self.canvasView.center = self.view.center;
+    [self.view addSubview:self.canvasView];
+    [self.view bringSubviewToFront:self.canvasView];
+    
+    self.facePoints = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
 - (void)p_clear {
@@ -114,6 +126,8 @@
     
     self.captureSessionQueue = nil;
     self.videoDataOutputQueue = nil;
+    
+    self.facePoints = nil;
 }
 
 - (void)p_setup {
@@ -176,17 +190,19 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // get the clean aperture
     // the clean aperture is a rectangle that defines the portion of the encoded pixel dimensions
     // that represents image data valid for display.
-//    CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
-//    CGRect cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
+    // CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
+    // CGRect cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
     
-    for ( CIFaceFeature *ff in features ) {
-        // find the correct position for the square layer within the previewLayer
-        // the feature box originates in the bottom left of the video frame.
-        // (Bottom right if mirroring is turned on)
-//        CGRect faceRect = [ff bounds];
-        
-        NSLog(@"==>>:%@", ff);
-    }
+    
+    //    for (CIFaceFeature *faceFeature in features) {
+    // find the correct position for the square layer within the previewLayer
+    // the feature box originates in the bottom left of the video frame.
+    // (Bottom right if mirroring is turned on)
+    // CGRect faceRect = [ff bounds];
+    // NSLog(@"==>>:%@", ff);
+    //    }
+    
+    [self p_chanagePoint:features];
 }
 
 #pragma mark - Class
@@ -204,6 +220,33 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
     
     return captureDevice;
+}
+
+#pragma mark - Unit
+
+- (void)p_chanagePoint:(NSArray *)features {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
+        self.canvasView.hidden = YES;
+        if (features == nil || features.count < 1) return;
+        
+        self.canvasView.hidden = NO;
+        [self.facePoints removeAllObjects];
+        
+        for (CIFaceFeature *faceFeature in features) {
+            
+            NSArray *points = @[[NSValue valueWithCGPoint:faceFeature.leftEyePosition],
+                                [NSValue valueWithCGPoint:faceFeature.rightEyePosition],
+                                [NSValue valueWithCGPoint:faceFeature.mouthPosition]];
+            
+            NSDictionary *faceDictionary = @{Key_FaceRect : [NSValue valueWithCGRect:faceFeature.bounds], Key_Points : points};
+            [self.facePoints addObject:faceDictionary];
+        }
+        
+        self.canvasView.faces = self.facePoints;
+        [self.canvasView setNeedsDisplay];
+    });
 }
 
 @end
