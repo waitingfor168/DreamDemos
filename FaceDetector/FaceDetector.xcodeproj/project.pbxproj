@@ -13,6 +13,7 @@
 		D208A9431DB7197800B2D7D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D208A9411DB7197800B2D7D9 /* Main.storyboard */; };
 		D208A9451DB7197800B2D7D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D208A9441DB7197800B2D7D9 /* Assets.xcassets */; };
 		D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */; };
+		D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D208A9441DB7197800B2D7D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D208A9471DB7197800B2D7D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D208A9491DB7197800B2D7D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetectorViewController.h; sourceTree = "<group>"; };
+		D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceDetectorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				D208A93C1DB7197800B2D7D9 /* AppDelegate.m */,
 				D208A93E1DB7197800B2D7D9 /* ViewController.h */,
 				D208A93F1DB7197800B2D7D9 /* ViewController.m */,
+				D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */,
+				D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */,
 				D208A9411DB7197800B2D7D9 /* Main.storyboard */,
 				D208A9441DB7197800B2D7D9 /* Assets.xcassets */,
 				D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */,
@@ -154,6 +159,7 @@
 				D208A9401DB7197800B2D7D9 /* ViewController.m in Sources */,
 				D208A93D1DB7197800B2D7D9 /* AppDelegate.m in Sources */,
 				D208A93A1DB7197800B2D7D9 /* main.m in Sources */,
+				D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +225,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -261,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -275,6 +281,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VV76TCDRUF;
 				INFOPLIST_FILE = FaceDetector/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dream.FaceDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,6 +294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VV76TCDRUF;
 				INFOPLIST_FILE = FaceDetector/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dream.FaceDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
