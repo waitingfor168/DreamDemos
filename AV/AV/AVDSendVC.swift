@@ -11,6 +11,9 @@ import AVFoundation
 
 class AVDSendVC: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    @IBOutlet weak var imageview: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +75,30 @@ class AVDSendVC: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate 
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         
-        print("====>>>");
+        let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer);
+        let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription!);
+        
+        print("====>>>:\(dimensions)");
+        
+        
+        
+        
+//        let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+//        CVPixelBufferLockBaseAddress(imageBuffer!, CVPixelBufferLockFlags.readOnly);
+//        
+//        let width = CVPixelBufferGetWidthOfPlane(imageBuffer!, 0)
+//        let height = CVPixelBufferGetHeightOfPlane(imageBuffer!, 0)
+//        let bytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(imageBuffer!, 0)
+//        let lumaBuffer = CVPixelBufferGetBaseAddressOfPlane(imageBuffer!, 0)
+//        
+//        let grayColorSpace = CGColorSpaceCreateDeviceGray();
+//        
+//        let context = CGContext(data: lumaBuffer, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: grayColorSpace, bitmapInfo: CGBitmapInfo.alphaInfoMask.rawValue)
+//        let cgImage = context!.makeImage()
+//
+//        DispatchQueue.main.sync(execute: {
+//            self.imageview.layer.contents = cgImage
+//        })
+
     }
 }

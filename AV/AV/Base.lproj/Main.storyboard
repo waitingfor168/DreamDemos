@@ -94,19 +94,30 @@
                                     <action selector="startAction:" destination="P7t-Np-D1I" eventType="touchUpInside" id="UDe-Fn-pdj"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H1I-68-40L">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="2R9-48-x7H"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HPk-y8-GW4" firstAttribute="leading" secondItem="J7H-Xb-2f8" secondAttribute="leadingMargin" id="2nQ-xm-Gat"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="H1I-68-40L" secondAttribute="leading" id="8Fz-ik-k3S"/>
+                            <constraint firstItem="H1I-68-40L" firstAttribute="top" secondItem="HPk-y8-GW4" secondAttribute="bottom" constant="14" id="ayp-Ay-23r"/>
                             <constraint firstItem="HPk-y8-GW4" firstAttribute="top" secondItem="tZE-Vf-art" secondAttribute="bottom" constant="100" id="bQL-Jr-Ek9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H1I-68-40L" secondAttribute="trailing" id="kGo-Au-d1Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HPk-y8-GW4" secondAttribute="trailing" id="kUo-fF-Ymx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Send" id="QGK-Fo-96x"/>
+                    <connections>
+                        <outlet property="imageview" destination="H1I-68-40L" id="5y0-AA-oyQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ag-yn-Us1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="137"/>
+            <point key="canvasLocation" x="792.79999999999995" y="136.28185907046478"/>
         </scene>
         <!--Receive-->
         <scene sceneID="iqz-p4-Yeg">
