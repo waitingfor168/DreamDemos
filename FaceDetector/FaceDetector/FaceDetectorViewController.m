@@ -9,29 +9,18 @@
 #import "FaceDetectorViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CanvasView.h"
+#import "VideoManager.h"
 
-@interface FaceDetectorViewController () <AVCaptureVideoDataOutputSampleBufferDelegate> {
+@interface FaceDetectorViewController () {
 
 }
 
-@property (nonatomic) dispatch_queue_t captureSessionQueue;
-@property (nonatomic) dispatch_queue_t videoDataOutputQueue;
-
-@property (nonatomic) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
-
-@property (nonatomic, strong) CIDetector *faceDetector;
-
-@property (nonatomic, strong) AVCaptureDevice *captureDevice;
-@property (nonatomic, strong) AVCaptureSession *captureSession;
-@property (nonatomic, strong) AVCaptureConnection *captureConnection;
-@property (nonatomic, strong) AVCaptureDeviceInput *captureDeviceInput;
-@property (nonatomic, strong) AVCaptureVideoDataOutput *captureVideoDataOutput;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
-
+@property (nonatomic, strong) VideoManager *videoManager;
 @property (nonatomic, strong) CanvasView *canvasView;
-@property (nonatomic, strong) NSMutableArray *facePoints;
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) CIDetector *faceDetector;
+@property (nonatomic, strong) NSMutableArray *facePoints;
 
 @end
 
@@ -60,38 +49,24 @@
 }
 
 - (void)p_initObject {
-
-    self.captureSessionQueue = dispatch_queue_create("dream.facedetector.session.queue", DISPATCH_QUEUE_SERIAL);
-    self.videoDataOutputQueue = dispatch_queue_create("dream.facedetector.dataoutput.queue", DISPATCH_QUEUE_SERIAL);
     
-    self.captureSession = [[AVCaptureSession alloc] init];
-    self.captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
+    self.videoManager = [VideoManager instanceWithPreview:self.view];
     
-    self.captureDevice = [[self class] deviceType:AVMediaTypeVideo position:AVCaptureDevicePositionFront];
-    
-    NSError *error = nil;
-    self.captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.captureDevice error:&error];
-    
-    if (error) {
-        NSLog(@"captureDeviceInput:%@", error);
-    }
-    
-    self.captureVideoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
-    self.captureConnection = [self.captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
+    __weak typeof(self) weakSelf = self;
+    [self.videoManager setOutput:^(AVCaptureOutput *captureOutput, CMSampleBufferRef sampleBuffer, AVCaptureConnection *connection) {
+        [weakSelf captureOutput:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
+    }];
     
     NSDictionary *detectorOptions = @{CIDetectorAccuracy : CIDetectorAccuracyLow};
     self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
     
-    self.captureVideoPreviewLayer.frame = self.view.frame;
-    self.captureVideoPreviewLayer.position = self.view.center;
-    self.captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    [self.view.layer addSublayer:self.captureVideoPreviewLayer];
-    
+    // 测试使用
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 480, 640)];
     self.imageView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.imageView];
     [self.view bringSubviewToFront:self.imageView];
     
+    // 显示坐标点
     self.canvasView = [[CanvasView alloc] initWithFrame:self.view.bounds];
     self.canvasView.backgroundColor = [UIColor clearColor];
     self.canvasView.center = self.view.center;
@@ -102,79 +77,17 @@
 }
 
 - (void)p_clear {
-
-    [self.captureSession stopRunning];
     
-    if (self.captureVideoPreviewLayer) {
-        
-        [self.captureVideoPreviewLayer removeFromSuperlayer];
-        self.captureVideoPreviewLayer = nil;
-    }
+    [self.videoManager shutDown];
     
-    if (self.captureVideoDataOutput) {
-        
-        self.captureVideoDataOutput = nil;
-    }
-    
-    if (self.captureDeviceInput) {
-        
-        self.captureDeviceInput = nil;
-    }
-    
-    if (self.captureDevice) {
-        
-        self.captureDevice = nil;
-    }
-    
-    if (self.captureSession) {
-        
-        self.captureSession = nil;
-    }
-    
-    self.captureSessionQueue = nil;
-    self.videoDataOutputQueue = nil;
-    
+    self.videoManager = nil;
     self.facePoints = nil;
 }
 
 - (void)p_setup {
 
-    dispatch_async(self.captureSessionQueue, ^{
-       
-        self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
-        
-        [self.captureSession beginConfiguration];
-        
-        self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
-        
-        if ([self.captureSession canAddInput:self.captureDeviceInput]) {
-            [self.captureSession addInput:self.captureDeviceInput];
-        }
-        
-        if ([self.captureSession canAddOutput:self.captureVideoDataOutput]) {
-            [self.captureSession addOutput:self.captureVideoDataOutput];
-        }
-        
-        self.captureConnection.enabled = YES;
-        if ([self.captureConnection isVideoStabilizationSupported]) {
-            [self.captureConnection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
-        }
-        
-        if ([self.captureConnection isVideoOrientationSupported]) {
-            [self.captureConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
-        }
-        
-        // discard if the data output queue is blocked
-        self.captureVideoDataOutput.alwaysDiscardsLateVideoFrames = YES;
-        self.captureVideoDataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
-        [self.captureVideoDataOutput setSampleBufferDelegate:self queue:self.videoDataOutputQueue];
-        
-        [self.captureSession commitConfiguration];
-        [self.captureSession startRunning];
-    });
+    [self.videoManager setup];
 }
-
-#pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
@@ -203,23 +116,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     });
     
     [self p_chanagePoint:features size:ciImage.extent.size];
-}
-
-#pragma mark - Class
-
-+ (AVCaptureDevice *)deviceType:(NSString *)mediaType position:(AVCaptureDevicePosition)position{
-    
-    NSArray *devices = [AVCaptureDevice devicesWithMediaType:mediaType];
-    AVCaptureDevice *captureDevice = [devices firstObject];
-    
-    for (AVCaptureDevice *device in devices){
-        if ([device position] == position){
-            captureDevice = device;
-            break;
-        }
-    }
-    
-    return captureDevice;
 }
 
 #pragma mark - Unit

@@ -15,6 +15,7 @@
 		D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */; };
 		D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */; };
 		D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9531DB7583E00B2D7D9 /* CanvasView.m */; };
+		D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D241E88E1DB8C8F70013F16D /* VideoManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceDetectorViewController.m; sourceTree = "<group>"; };
 		D208A9521DB7583E00B2D7D9 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		D208A9531DB7583E00B2D7D9 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
+		D241E88D1DB8C8F70013F16D /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoManager.h; sourceTree = "<group>"; };
+		D241E88E1DB8C8F70013F16D /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				D208A93C1DB7197800B2D7D9 /* AppDelegate.m */,
 				D208A93E1DB7197800B2D7D9 /* ViewController.h */,
 				D208A93F1DB7197800B2D7D9 /* ViewController.m */,
+				D241E88D1DB8C8F70013F16D /* VideoManager.h */,
+				D241E88E1DB8C8F70013F16D /* VideoManager.m */,
 				D208A9521DB7583E00B2D7D9 /* CanvasView.h */,
 				D208A9531DB7583E00B2D7D9 /* CanvasView.m */,
 				D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */,
@@ -166,6 +171,7 @@
 				D208A93A1DB7197800B2D7D9 /* main.m in Sources */,
 				D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */,
 				D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */,
+				D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +332,7 @@
 				D208A94E1DB7197800B2D7D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
