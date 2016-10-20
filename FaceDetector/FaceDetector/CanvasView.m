@@ -23,6 +23,7 @@
         CGContextClearRect(context, self.bounds) ;
     }
     context = UIGraphicsGetCurrentContext();
+    CGContextAddRect(context,self.bounds);
     
     for (NSDictionary *dicPerson in self.faces) {
         
@@ -39,7 +40,7 @@
             CGRect rect = [[dicPerson objectForKey:Key_FaceRect] CGRectValue];
             
             // 完整矩形
-            // CGContextAddRect(context,rect) ;
+            // CGContextAddRect(context,rect);
             
             // 只画矩形四角
             // 左上
@@ -65,7 +66,7 @@
     }
     
     [[UIColor greenColor] set];
-    CGContextSetLineWidth(context, 2);
+    CGContextSetLineWidth(context, 20);
     CGContextStrokePath(context);
 }
 

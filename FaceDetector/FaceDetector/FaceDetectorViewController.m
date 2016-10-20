@@ -31,6 +31,8 @@
 @property (nonatomic, strong) CanvasView *canvasView;
 @property (nonatomic, strong) NSMutableArray *facePoints;
 
+@property (nonatomic, strong) UIImageView *imageView;
+
 @end
 
 @implementation FaceDetectorViewController
@@ -82,10 +84,15 @@
     
     self.captureVideoPreviewLayer.frame = self.view.frame;
     self.captureVideoPreviewLayer.position = self.view.center;
-    self.captureVideoPreviewLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;
+    self.captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.view.layer addSublayer:self.captureVideoPreviewLayer];
     
-    self.canvasView = [[CanvasView alloc] initWithFrame:self.view.frame];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 480, 640)];
+    self.imageView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.imageView];
+    [self.view bringSubviewToFront:self.imageView];
+    
+    self.canvasView = [[CanvasView alloc] initWithFrame:self.view.bounds];
     self.canvasView.backgroundColor = [UIColor clearColor];
     self.canvasView.center = self.view.center;
     [self.view addSubview:self.canvasView];
@@ -178,31 +185,24 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
     CIImage *ciImage = [[CIImage alloc] initWithCVPixelBuffer:pixelBuffer
                                                       options:(__bridge NSDictionary *)attachments];
+    // 调整ciImage的方向
+    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
+    
     if (attachments) {
         CFRelease(attachments);
     }
     
-    NSDictionary *imageOptions = @{CIDetectorImageOrientation : @(6)};
-    
+    // ciImage 相对于手机的方向
+    NSDictionary *imageOptions = @{CIDetectorImageOrientation : @(1)};
     NSArray *features = [self.faceDetector featuresInImage:ciImage
                                                    options:imageOptions];
     
-    // get the clean aperture
-    // the clean aperture is a rectangle that defines the portion of the encoded pixel dimensions
-    // that represents image data valid for display.
-    // CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
-    // CGRect cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+//        self.imageView.image = [UIImage imageWithCIImage:ciImage];
+    });
     
-    
-    //    for (CIFaceFeature *faceFeature in features) {
-    // find the correct position for the square layer within the previewLayer
-    // the feature box originates in the bottom left of the video frame.
-    // (Bottom right if mirroring is turned on)
-    // CGRect faceRect = [ff bounds];
-    // NSLog(@"==>>:%@", ff);
-    //    }
-    
-    [self p_chanagePoint:features];
+    [self p_chanagePoint:features size:ciImage.extent.size];
 }
 
 #pragma mark - Class
@@ -224,10 +224,15 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 #pragma mark - Unit
 
-- (void)p_chanagePoint:(NSArray *)features {
+- (void)p_chanagePoint:(NSArray *)features size:(CGSize)ciImageSize {
     
     dispatch_async(dispatch_get_main_queue(), ^{
-    
+        
+        // 坐标转换
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        transform = CGAffineTransformScale(transform, 1, -1);
+        transform = CGAffineTransformTranslate(transform, 0, -ciImageSize.height);
+        
         self.canvasView.hidden = YES;
         if (features == nil || features.count < 1) return;
         
@@ -236,14 +241,38 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         
         for (CIFaceFeature *faceFeature in features) {
             
-            NSArray *points = @[[NSValue valueWithCGPoint:faceFeature.leftEyePosition],
-                                [NSValue valueWithCGPoint:faceFeature.rightEyePosition],
-                                [NSValue valueWithCGPoint:faceFeature.mouthPosition]];
+            CGRect faceViewBounds = CGRectApplyAffineTransform(faceFeature.bounds, transform);
+            CGPoint mouthPosition = CGPointApplyAffineTransform(faceFeature.mouthPosition, transform);
+            CGPoint leftEyePosition = CGPointApplyAffineTransform(faceFeature.leftEyePosition, transform);
+            CGPoint rightEyePosition = CGPointApplyAffineTransform(faceFeature.rightEyePosition, transform);
             
-            NSDictionary *faceDictionary = @{Key_FaceRect : [NSValue valueWithCGRect:faceFeature.bounds], Key_Points : points};
+            // 获取在ciImage的左边相对于实际view的坐标
+            CGFloat width = self.view.bounds.size.width;
+            CGFloat height = self.view.bounds.size.height;
+            CGFloat widthScale = width / ciImageSize.width;
+            CGFloat heightScale = height / ciImageSize.height;
+            
+            faceViewBounds.origin.x *= widthScale;
+            faceViewBounds.origin.y *= heightScale;
+            faceViewBounds.size.width *= widthScale;
+            faceViewBounds.size.height *= heightScale;
+            
+            mouthPosition.x *= widthScale;
+            mouthPosition.y *= heightScale;
+            leftEyePosition.x *= widthScale;
+            leftEyePosition.y *= heightScale;
+            rightEyePosition.x *= widthScale;
+            rightEyePosition.y *= heightScale;
+            
+            // Point Rect 装箱
+            NSArray *points = @[[NSValue valueWithCGPoint:leftEyePosition],
+                                [NSValue valueWithCGPoint:rightEyePosition],
+                                [NSValue valueWithCGPoint:mouthPosition]];
+            NSValue *faceRectValue = [NSValue valueWithCGRect:faceViewBounds];
+            NSDictionary *faceDictionary = @{Key_FaceRect : faceRectValue, Key_Points : points};
+            
             [self.facePoints addObject:faceDictionary];
         }
-        
         self.canvasView.faces = self.facePoints;
         [self.canvasView setNeedsDisplay];
     });
