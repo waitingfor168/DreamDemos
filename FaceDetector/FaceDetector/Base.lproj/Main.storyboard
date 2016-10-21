@@ -101,12 +101,35 @@
                     <view key="view" contentMode="scaleToFill" id="Idg-Ld-mG2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nq-OX-XNB">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-o7-Lqb">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="G0M-Yi-jyh"/>
+                                    <constraint firstAttribute="width" constant="240" id="pPj-MR-LMC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8nq-OX-XNB" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" id="7Ge-zN-8le"/>
+                            <constraint firstItem="8nq-OX-XNB" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leading" id="Bog-9k-XuK"/>
+                            <constraint firstAttribute="trailing" secondItem="8nq-OX-XNB" secondAttribute="trailing" id="Wj0-n2-Hk4"/>
+                            <constraint firstItem="SnJ-o7-Lqb" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" constant="36" id="dLo-JJ-fls"/>
+                            <constraint firstItem="lSJ-jH-60v" firstAttribute="top" secondItem="8nq-OX-XNB" secondAttribute="bottom" id="j2g-n6-6HV"/>
+                            <constraint firstItem="SnJ-o7-Lqb" firstAttribute="centerX" secondItem="Idg-Ld-mG2" secondAttribute="centerX" id="wRV-87-Ajr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="baseView" destination="8nq-OX-XNB" id="1U3-H5-Ubm"/>
+                        <outlet property="imageView" destination="SnJ-o7-Lqb" id="8y4-zL-uIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcR-fA-a9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="-338"/>
+            <point key="canvasLocation" x="917.60000000000002" y="-338.68065967016497"/>
         </scene>
     </scenes>
 </document>

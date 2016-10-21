@@ -15,8 +15,19 @@
 		D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */; };
 		D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */; };
 		D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9531DB7583E00B2D7D9 /* CanvasView.m */; };
-		D21436971DB9A867006FAE7A /* MaskImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21436961DB9A867006FAE7A /* MaskImageViewController.m */; };
+		D21436971DB9A867006FAE7A /* MaskImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D21436961DB9A867006FAE7A /* MaskImageViewController.mm */; };
+		D21436991DB9BEB0006FAE7A /* cubeMap.c in Sources */ = {isa = PBXBuildFile; fileRef = D21436981DB9BEB0006FAE7A /* cubeMap.c */; };
 		D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D241E88E1DB8C8F70013F16D /* VideoManager.m */; };
+		D2AF99451DB9CDBF009C97A1 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF99421DB9CDBF009C97A1 /* background.jpg */; };
+		D2AF99491DB9CF9E009C97A1 /* HSV.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF99481DB9CF9E009C97A1 /* HSV.png */; };
+		D2AF99521DB9D3AD009C97A1 /* icon001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994A1DB9D3AD009C97A1 /* icon001.jpg */; };
+		D2AF99531DB9D3AD009C97A1 /* icon001.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994B1DB9D3AD009C97A1 /* icon001.png */; };
+		D2AF99541DB9D3AD009C97A1 /* icon002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994C1DB9D3AD009C97A1 /* icon002.jpg */; };
+		D2AF99551DB9D3AD009C97A1 /* icon002.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994D1DB9D3AD009C97A1 /* icon002.png */; };
+		D2AF99561DB9D3AD009C97A1 /* icon003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994E1DB9D3AD009C97A1 /* icon003.jpg */; };
+		D2AF99571DB9D3AD009C97A1 /* icon003.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994F1DB9D3AD009C97A1 /* icon003.png */; };
+		D2AF99581DB9D3AD009C97A1 /* icon004.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF99501DB9D3AD009C97A1 /* icon004.jpg */; };
+		D2AF99591DB9D3AD009C97A1 /* icon004.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF99511DB9D3AD009C97A1 /* icon004.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +46,20 @@
 		D208A9521DB7583E00B2D7D9 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		D208A9531DB7583E00B2D7D9 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		D21436951DB9A867006FAE7A /* MaskImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskImageViewController.h; sourceTree = "<group>"; };
-		D21436961DB9A867006FAE7A /* MaskImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskImageViewController.m; sourceTree = "<group>"; };
+		D21436961DB9A867006FAE7A /* MaskImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MaskImageViewController.mm; sourceTree = "<group>"; };
+		D21436981DB9BEB0006FAE7A /* cubeMap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cubeMap.c; sourceTree = "<group>"; };
 		D241E88D1DB8C8F70013F16D /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoManager.h; sourceTree = "<group>"; };
 		D241E88E1DB8C8F70013F16D /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoManager.m; sourceTree = "<group>"; };
+		D2AF99421DB9CDBF009C97A1 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		D2AF99481DB9CF9E009C97A1 /* HSV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSV.png; sourceTree = "<group>"; };
+		D2AF994A1DB9D3AD009C97A1 /* icon001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon001.jpg; sourceTree = "<group>"; };
+		D2AF994B1DB9D3AD009C97A1 /* icon001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon001.png; sourceTree = "<group>"; };
+		D2AF994C1DB9D3AD009C97A1 /* icon002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon002.jpg; sourceTree = "<group>"; };
+		D2AF994D1DB9D3AD009C97A1 /* icon002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon002.png; sourceTree = "<group>"; };
+		D2AF994E1DB9D3AD009C97A1 /* icon003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon003.jpg; sourceTree = "<group>"; };
+		D2AF994F1DB9D3AD009C97A1 /* icon003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon003.png; sourceTree = "<group>"; };
+		D2AF99501DB9D3AD009C97A1 /* icon004.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon004.jpg; sourceTree = "<group>"; };
+		D2AF99511DB9D3AD009C97A1 /* icon004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon004.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +100,21 @@
 				D241E88E1DB8C8F70013F16D /* VideoManager.m */,
 				D208A9521DB7583E00B2D7D9 /* CanvasView.h */,
 				D208A9531DB7583E00B2D7D9 /* CanvasView.m */,
+				D21436981DB9BEB0006FAE7A /* cubeMap.c */,
 				D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */,
 				D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */,
 				D21436951DB9A867006FAE7A /* MaskImageViewController.h */,
-				D21436961DB9A867006FAE7A /* MaskImageViewController.m */,
+				D21436961DB9A867006FAE7A /* MaskImageViewController.mm */,
+				D2AF99481DB9CF9E009C97A1 /* HSV.png */,
+				D2AF99421DB9CDBF009C97A1 /* background.jpg */,
+				D2AF994A1DB9D3AD009C97A1 /* icon001.jpg */,
+				D2AF994B1DB9D3AD009C97A1 /* icon001.png */,
+				D2AF994C1DB9D3AD009C97A1 /* icon002.jpg */,
+				D2AF994D1DB9D3AD009C97A1 /* icon002.png */,
+				D2AF994E1DB9D3AD009C97A1 /* icon003.jpg */,
+				D2AF994F1DB9D3AD009C97A1 /* icon003.png */,
+				D2AF99501DB9D3AD009C97A1 /* icon004.jpg */,
+				D2AF99511DB9D3AD009C97A1 /* icon004.png */,
 				D208A9411DB7197800B2D7D9 /* Main.storyboard */,
 				D208A9441DB7197800B2D7D9 /* Assets.xcassets */,
 				D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */,
@@ -158,8 +191,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AF99571DB9D3AD009C97A1 /* icon003.png in Resources */,
+				D2AF99581DB9D3AD009C97A1 /* icon004.jpg in Resources */,
 				D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */,
+				D2AF99451DB9CDBF009C97A1 /* background.jpg in Resources */,
+				D2AF99561DB9D3AD009C97A1 /* icon003.jpg in Resources */,
+				D2AF99591DB9D3AD009C97A1 /* icon004.png in Resources */,
+				D2AF99531DB9D3AD009C97A1 /* icon001.png in Resources */,
 				D208A9451DB7197800B2D7D9 /* Assets.xcassets in Resources */,
+				D2AF99491DB9CF9E009C97A1 /* HSV.png in Resources */,
+				D2AF99521DB9D3AD009C97A1 /* icon001.jpg in Resources */,
+				D2AF99551DB9D3AD009C97A1 /* icon002.png in Resources */,
+				D2AF99541DB9D3AD009C97A1 /* icon002.jpg in Resources */,
 				D208A9431DB7197800B2D7D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,10 +217,11 @@
 				D208A9401DB7197800B2D7D9 /* ViewController.m in Sources */,
 				D208A93D1DB7197800B2D7D9 /* AppDelegate.m in Sources */,
 				D208A93A1DB7197800B2D7D9 /* main.m in Sources */,
-				D21436971DB9A867006FAE7A /* MaskImageViewController.m in Sources */,
+				D21436971DB9A867006FAE7A /* MaskImageViewController.mm in Sources */,
 				D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */,
 				D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */,
 				D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */,
+				D21436991DB9BEB0006FAE7A /* cubeMap.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
