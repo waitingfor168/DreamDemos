@@ -16,6 +16,7 @@
 @property (nonatomic, strong) VideoManager *videoManager;
 
 @property (nonatomic, strong) IBOutlet UIView *baseView;
+@property (nonatomic, strong) IBOutlet UIImageView *bgView;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
 @property (nonatomic) UIImage *bgImage;
@@ -112,8 +113,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CIImage *outputImage = _colorCubeFilter.outputImage;
     
     // 添加新背景图
-    [_sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
-    outputImage = _sourceOverCompositingFilter.outputImage;
+//    [_sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
+//    outputImage = _sourceOverCompositingFilter.outputImage;
     
     @autoreleasepool {
         
@@ -126,6 +127,28 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             cgImage = nil;
         });
     }
+}
+
+#pragma mark - Action
+
+- (IBAction)photoButton:(id)sender {
+    
+    UIImage *image = [self imageRenderView:self.view];
+    
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+}
+
+#pragma mark - Unit
+
+- (UIImage *)imageRenderView:(UIView *)view {
+    
+    UIGraphicsBeginImageContext(view.bounds.size);
+    CGContextRef currnetContext = UIGraphicsGetCurrentContext();
+    [view.layer renderInContext:currnetContext];
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void)combinationImage {
