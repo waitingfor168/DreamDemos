@@ -98,25 +98,29 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void)filterImage:(CIImage *)ciImage {
 
-    UIImage *backImage = [UIImage imageNamed:@"bg.jpg"];
-    //更换背景图片
-    CubeMap myCube = createCubeMap(235, 245);
-    NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
-    CIFilter *colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
-    [colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
-    [colorCubeFilter setValue:myData forKey:@"inputCubeData"];
-    [colorCubeFilter setValue:ciImage forKey:kCIInputImageKey];
-    
-    CIImage *outputImage = colorCubeFilter.outputImage;
-    
-    CIFilter *sourceOverCompositingFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
-    [sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
-    [sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:backImage.CGImage] forKey:kCIInputBackgroundImageKey];
-    
-    outputImage = sourceOverCompositingFilter.outputImage;
-    CGImage *cgImage = [[CIContext contextWithOptions:nil] createCGImage:outputImage fromRect:outputImage.extent];
-    
-    self.imageView.image = [UIImage imageWithCGImage:cgImage];
+    @autoreleasepool {
+
+//        UIImage *backImage = [UIImage imageNamed:@"bg.jpg"];
+        //更换背景图片
+        CubeMap myCube = createCubeMap(235, 245);
+        NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
+        CIFilter *colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
+        [colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
+        [colorCubeFilter setValue:myData forKey:@"inputCubeData"];
+        [colorCubeFilter setValue:ciImage forKey:kCIInputImageKey];
+
+        CIImage *outputImage = colorCubeFilter.outputImage;
+        
+//        CIFilter *sourceOverCompositingFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
+//        [sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
+//        [sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:backImage.CGImage] forKey:kCIInputBackgroundImageKey];
+//        
+//        outputImage = sourceOverCompositingFilter.outputImage;
+        CIContext *ciContext = [CIContext contextWithOptions:nil];
+        CGImage *cgImage = [ciContext createCGImage:outputImage fromRect:outputImage.extent];
+        
+        self.imageView.image = [UIImage imageWithCGImage:cgImage];
+    }
 }
 
 - (void)combinationImage {
