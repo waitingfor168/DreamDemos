@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"FaceDetector";
+    
     // check camera authorization
     // TODO:
     

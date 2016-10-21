@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-618" y="119"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -33,12 +34,43 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5af-eN-cGv">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ejM-vA-QNA"/>
+                                </constraints>
+                                <state key="normal" title="FaceDetection"/>
+                                <connections>
+                                    <segue destination="LqO-XQ-xu4" kind="show" id="dV9-KY-j8B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLm-LO-jna">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1yZ-3O-Rf2"/>
+                                </constraints>
+                                <state key="normal" title="ImageMask"/>
+                                <connections>
+                                    <segue destination="Mgb-77-rrl" kind="show" id="BGm-R8-Q3R"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="JLm-LO-jna" secondAttribute="trailing" id="7Yd-5L-H3H"/>
+                            <constraint firstItem="5af-eN-cGv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="56" id="Cgj-OO-mmg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5af-eN-cGv" secondAttribute="trailing" id="LA2-c0-GIz"/>
+                            <constraint firstItem="JLm-LO-jna" firstAttribute="top" secondItem="5af-eN-cGv" secondAttribute="bottom" constant="30" id="NpR-OS-Zq3"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="JLm-LO-jna" secondAttribute="leading" id="VKo-TK-Zhb"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5af-eN-cGv" secondAttribute="leading" id="VVS-uI-AAy"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jFX-Dn-ZOB"/>
+                    <navigationItem key="navigationItem" title="Home" id="jFX-Dn-ZOB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="117.39130434782609"/>
         </scene>
         <!--Face Detector View Controller-->
         <scene sceneID="oct-xs-J3C">
@@ -56,7 +88,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djw-TW-xKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="119"/>
+            <point key="canvasLocation" x="918" y="427"/>
+        </scene>
+        <!--Mask Image View Controller-->
+        <scene sceneID="YEH-QZ-R94">
+            <objects>
+                <viewController id="Mgb-77-rrl" customClass="MaskImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y9k-h2-4Wx"/>
+                        <viewControllerLayoutGuide type="bottom" id="lSJ-jH-60v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Idg-Ld-mG2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rcR-fA-a9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918" y="-338"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MaskImageViewController.h"
 #import "FaceDetectorViewController.h"
 
 @interface ViewController ()
@@ -28,8 +29,8 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    FaceDetectorViewController *faceDetectorViewController = [[FaceDetectorViewController alloc] init];
-    [self.navigationController pushViewController:faceDetectorViewController animated:YES];
+//    FaceDetectorViewController *faceDetectorViewController = [[FaceDetectorViewController alloc] init];
+//    [self.navigationController pushViewController:faceDetectorViewController animated:YES];
 }
 
 @end
