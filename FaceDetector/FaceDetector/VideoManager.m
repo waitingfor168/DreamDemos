@@ -165,12 +165,12 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:mediaType];
     AVCaptureDevice *captureDevice = [devices firstObject];
     
-    for (AVCaptureDevice *device in devices){
-        if ([device position] == position){
-            captureDevice = device;
-            break;
-        }
-    }
+//    for (AVCaptureDevice *device in devices){
+//        if ([device position] == position){
+//            captureDevice = device;
+//            break;
+//        }
+//    }
     
     return captureDevice;
 }

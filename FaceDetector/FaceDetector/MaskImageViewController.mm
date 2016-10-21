@@ -27,8 +27,8 @@
     
     self.navigationItem.title = @"MaskImage";
     
-    [self combinationImage];
-    return;
+//    [self combinationImage];
+//    return;
     
     // check camera authorization
     // TODO:
@@ -98,8 +98,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void)filterImage:(CIImage *)ciImage {
 
+    UIImage *backImage = [UIImage imageNamed:@"bg.jpg"];
     //更换背景图片
-    CubeMap myCube = createCubeMap(35, 55);
+    CubeMap myCube = createCubeMap(235, 245);
     NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
     CIFilter *colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
     [colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
@@ -110,7 +111,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     CIFilter *sourceOverCompositingFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     [sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
-//    [sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:backImageView.image.CGImage] forKey:kCIInputBackgroundImageKey];
+    [sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:backImage.CGImage] forKey:kCIInputBackgroundImageKey];
     
     outputImage = sourceOverCompositingFilter.outputImage;
     CGImage *cgImage = [[CIContext contextWithOptions:nil] createCGImage:outputImage fromRect:outputImage.extent];

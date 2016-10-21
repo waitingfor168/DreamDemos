@@ -28,6 +28,7 @@
 		D2AF99571DB9D3AD009C97A1 /* icon003.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF994F1DB9D3AD009C97A1 /* icon003.png */; };
 		D2AF99581DB9D3AD009C97A1 /* icon004.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF99501DB9D3AD009C97A1 /* icon004.jpg */; };
 		D2AF99591DB9D3AD009C97A1 /* icon004.png in Resources */ = {isa = PBXBuildFile; fileRef = D2AF99511DB9D3AD009C97A1 /* icon004.png */; };
+		D2AF995B1DB9DA71009C97A1 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2AF995A1DB9DA71009C97A1 /* bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		D2AF994F1DB9D3AD009C97A1 /* icon003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon003.png; sourceTree = "<group>"; };
 		D2AF99501DB9D3AD009C97A1 /* icon004.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon004.jpg; sourceTree = "<group>"; };
 		D2AF99511DB9D3AD009C97A1 /* icon004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon004.png; sourceTree = "<group>"; };
+		D2AF995A1DB9DA71009C97A1 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D21436951DB9A867006FAE7A /* MaskImageViewController.h */,
 				D21436961DB9A867006FAE7A /* MaskImageViewController.mm */,
 				D2AF99481DB9CF9E009C97A1 /* HSV.png */,
+				D2AF995A1DB9DA71009C97A1 /* bg.jpg */,
 				D2AF99421DB9CDBF009C97A1 /* background.jpg */,
 				D2AF994A1DB9D3AD009C97A1 /* icon001.jpg */,
 				D2AF994B1DB9D3AD009C97A1 /* icon001.png */,
@@ -195,6 +198,7 @@
 				D2AF99581DB9D3AD009C97A1 /* icon004.jpg in Resources */,
 				D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */,
 				D2AF99451DB9CDBF009C97A1 /* background.jpg in Resources */,
+				D2AF995B1DB9DA71009C97A1 /* bg.jpg in Resources */,
 				D2AF99561DB9D3AD009C97A1 /* icon003.jpg in Resources */,
 				D2AF99591DB9D3AD009C97A1 /* icon004.png in Resources */,
 				D2AF99531DB9D3AD009C97A1 /* icon001.png in Resources */,
