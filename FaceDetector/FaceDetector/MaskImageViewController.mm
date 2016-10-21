@@ -18,6 +18,12 @@
 @property (nonatomic, strong) IBOutlet UIView *baseView;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
+@property (nonatomic) UIImage *bgImage;
+
+@property (nonatomic) CIContext *ciContext;
+@property (nonatomic) CIFilter *colorCubeFilter;
+@property (nonatomic) CIFilter *sourceOverCompositingFilter;
+
 @end
 
 @implementation MaskImageViewController
@@ -51,6 +57,18 @@
 
 - (void)p_initObject {
     
+    _bgImage = [UIImage imageNamed:@"bg.jpg"];
+    _ciContext = [CIContext contextWithOptions:nil];
+    
+    CubeMap myCube = createCubeMap(235, 245);
+    NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
+    _colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
+    [_colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
+    [_colorCubeFilter setValue:myData forKey:@"inputCubeData"];
+    
+    _sourceOverCompositingFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
+    [_sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:_bgImage.CGImage] forKey:kCIInputBackgroundImageKey];
+    
     self.videoManager = [VideoManager instanceWithPreview:self.baseView];
     
     __weak typeof(self) weakSelf = self;
@@ -64,6 +82,8 @@
     [self.videoManager shutDown];
     
     self.videoManager = nil;
+    self.colorCubeFilter = nil;
+    self.sourceOverCompositingFilter = nil;
 }
 
 - (void)p_setup {
@@ -87,39 +107,24 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         CFRelease(attachments);
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-//        CIFilter *filter = [CIFilter filterWithName:@"CIColorInvert" keysAndValues:@"inputImage" ,ciImage ,nil];
-//        self.imageView.image = [UIImage imageWithCIImage:[filter outputImage]];
-        [self filterImage:ciImage];
-    });
+    // 纯背景色抠图
+    [_colorCubeFilter setValue:ciImage forKey:kCIInputImageKey];
+    CIImage *outputImage = _colorCubeFilter.outputImage;
     
-}
-
-- (void)filterImage:(CIImage *)ciImage {
-
+    // 添加新背景图
+    [_sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
+    outputImage = _sourceOverCompositingFilter.outputImage;
+    
     @autoreleasepool {
-
-//        UIImage *backImage = [UIImage imageNamed:@"bg.jpg"];
-        //更换背景图片
-        CubeMap myCube = createCubeMap(235, 245);
-        NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
-        CIFilter *colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
-        [colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
-        [colorCubeFilter setValue:myData forKey:@"inputCubeData"];
-        [colorCubeFilter setValue:ciImage forKey:kCIInputImageKey];
-
-        CIImage *outputImage = colorCubeFilter.outputImage;
         
-//        CIFilter *sourceOverCompositingFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
-//        [sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
-//        [sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:backImage.CGImage] forKey:kCIInputBackgroundImageKey];
-//        
-//        outputImage = sourceOverCompositingFilter.outputImage;
-        CIContext *ciContext = [CIContext contextWithOptions:nil];
-        CGImage *cgImage = [ciContext createCGImage:outputImage fromRect:outputImage.extent];
-        
-        self.imageView.image = [UIImage imageWithCGImage:cgImage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            CGImage *cgImage = [_ciContext createCGImage:outputImage fromRect:outputImage.extent];
+            self.imageView.image = [UIImage imageWithCGImage:cgImage];
+            
+            CGImageRelease(cgImage);
+            cgImage = nil;
+        });
     }
 }
 
