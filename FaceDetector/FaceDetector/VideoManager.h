@@ -20,4 +20,15 @@ typedef void(^CaptureOutput)(AVCaptureOutput *captureOutput, CMSampleBufferRef s
 - (void)setup;
 - (void)shutDown;
 
+
+/**
+ 切换摄像头
+ */
+- (void)cameraToggle;
+
+/**
+ 是否为前置摄像头
+ */
+@property (nonatomic, assign) BOOL isFront;
+
 @end

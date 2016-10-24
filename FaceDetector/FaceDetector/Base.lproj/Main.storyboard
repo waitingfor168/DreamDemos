@@ -140,6 +140,17 @@
                                     <action selector="changeColorButton:" destination="Mgb-77-rrl" eventType="touchUpInside" id="nel-co-Bjk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Z3-wI-8Gy">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6Bz-qF-Usn"/>
+                                    <constraint firstAttribute="width" constant="60" id="ym7-lA-1o5"/>
+                                </constraints>
+                                <state key="normal" title="Toggle"/>
+                                <connections>
+                                    <action selector="changeCameraButton:" destination="Mgb-77-rrl" eventType="touchUpInside" id="AnQ-6E-wG4"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1W-XO-h7c">
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -162,12 +173,14 @@
                             <constraint firstItem="rvn-25-hx8" firstAttribute="width" secondItem="v1W-XO-h7c" secondAttribute="width" id="98p-QX-BUD"/>
                             <constraint firstItem="8nq-OX-XNB" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leading" id="Bog-9k-XuK"/>
                             <constraint firstAttribute="trailing" secondItem="SnJ-o7-Lqb" secondAttribute="trailing" id="Cx5-bt-cbM"/>
+                            <constraint firstItem="6Z3-wI-8Gy" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" constant="26" id="IhE-G0-uiO"/>
                             <constraint firstItem="rvn-25-hx8" firstAttribute="height" secondItem="v1W-XO-h7c" secondAttribute="height" id="Ihj-CJ-IDc"/>
                             <constraint firstItem="sbu-gw-MsE" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" constant="26" id="Iws-L8-Gox"/>
                             <constraint firstAttribute="bottom" secondItem="SnJ-o7-Lqb" secondAttribute="bottom" id="Kkt-7o-rwc"/>
                             <constraint firstItem="S9V-5Y-pDH" firstAttribute="top" secondItem="Idg-Ld-mG2" secondAttribute="top" id="P5U-12-XXD"/>
                             <constraint firstItem="S9V-5Y-pDH" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leading" id="RFg-Gn-Eao"/>
                             <constraint firstAttribute="trailing" secondItem="8nq-OX-XNB" secondAttribute="trailing" id="Wj0-n2-Hk4"/>
+                            <constraint firstItem="6Z3-wI-8Gy" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leadingMargin" constant="-1" id="YnE-34-xFR"/>
                             <constraint firstItem="A7D-UY-Odf" firstAttribute="width" secondItem="v1W-XO-h7c" secondAttribute="width" id="deh-Pi-hKa"/>
                             <constraint firstItem="SnJ-o7-Lqb" firstAttribute="top" secondItem="Idg-Ld-mG2" secondAttribute="top" id="dhn-bL-819"/>
                             <constraint firstItem="A7D-UY-Odf" firstAttribute="top" secondItem="v1W-XO-h7c" secondAttribute="bottom" constant="5" id="e4b-q8-Q6o"/>

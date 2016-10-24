@@ -101,7 +101,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // 调整ciImage的方向
 //    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
     ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationLeftMirrored];
-
     
     if (attachments) {
         CFRelease(attachments);
@@ -155,6 +154,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
     
     [self changeFilterColorMap:myCube];
+}
+
+- (IBAction)changeCameraButton:(UIButton *)sender {
+    
+    [self.videoManager cameraToggle];
 }
 
 #pragma mark - Unit
