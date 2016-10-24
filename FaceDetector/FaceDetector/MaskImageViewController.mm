@@ -33,7 +33,8 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"MaskImage";
-    
+
+//    静态图片抠图和合并
 //    [self combinationImage];
 //    return;
     
@@ -61,11 +62,7 @@
     _bgImage = [UIImage imageNamed:@"bg.jpg"];
     _ciContext = [CIContext contextWithOptions:nil];
     
-    CubeMap myCube = createCubeMap(235, 245);
-    NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
-    _colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
-    [_colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
-    [_colorCubeFilter setValue:myData forKey:@"inputCubeData"];
+    [self changeColorButton:nil];
     
     _sourceOverCompositingFilter = [CIFilter filterWithName:@"CISourceOverCompositing"];
     [_sourceOverCompositingFilter setValue:[CIImage imageWithCGImage:_bgImage.CGImage] forKey:kCIInputBackgroundImageKey];
@@ -102,30 +99,36 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CIImage *ciImage = [[CIImage alloc] initWithCVPixelBuffer:pixelBuffer
                                                       options:(__bridge NSDictionary *)attachments];
     // 调整ciImage的方向
-    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
+//    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
+    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationLeftMirrored];
+
     
     if (attachments) {
         CFRelease(attachments);
     }
     
     // 纯背景色抠图
-    [_colorCubeFilter setValue:ciImage forKey:kCIInputImageKey];
-    CIImage *outputImage = _colorCubeFilter.outputImage;
-    
-    // 添加新背景图
-//    [_sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
-//    outputImage = _sourceOverCompositingFilter.outputImage;
-    
-    @autoreleasepool {
+    if (_colorCubeFilter ) {
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [_colorCubeFilter setValue:ciImage forKey:kCIInputImageKey];
+        CIImage *outputImage = _colorCubeFilter.outputImage;
+        
+        
+        // 添加新背景图
+        //    [_sourceOverCompositingFilter setValue:outputImage forKey:kCIInputImageKey];
+        //    outputImage = _sourceOverCompositingFilter.outputImage;
+        
+        @autoreleasepool {
             
-            CGImage *cgImage = [_ciContext createCGImage:outputImage fromRect:outputImage.extent];
-            self.imageView.image = [UIImage imageWithCGImage:cgImage];
-            
-            CGImageRelease(cgImage);
-            cgImage = nil;
-        });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                CGImage *cgImage = [_ciContext createCGImage:outputImage fromRect:outputImage.extent];
+                self.imageView.image = [UIImage imageWithCGImage:cgImage];
+                
+                CGImageRelease(cgImage);
+                cgImage = nil;
+            });
+        }
     }
 }
 
@@ -138,7 +141,31 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
+- (IBAction)changeColorButton:(UIButton *)sender {
+    
+    CubeMap myCube = createCubeMap(-5, 5); // red
+    
+    if (sender.tag == 201) {
+        
+        myCube = createCubeMap(115, 125); // green
+    }
+    else if (sender.tag == 202) {
+        
+        myCube = createCubeMap(235, 245); // blue
+    }
+    
+    [self changeFilterColorMap:myCube];
+}
+
 #pragma mark - Unit
+
+- (void)changeFilterColorMap:(CubeMap)myCube {
+
+    NSData *myData = [[NSData alloc]initWithBytesNoCopy:myCube.data length:myCube.length freeWhenDone:true];
+    _colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
+    [_colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
+    [_colorCubeFilter setValue:myData forKey:@"inputCubeData"];
+}
 
 - (UIImage *)imageRenderView:(UIView *)view {
     

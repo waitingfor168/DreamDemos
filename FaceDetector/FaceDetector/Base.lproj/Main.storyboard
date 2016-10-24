@@ -112,27 +112,73 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbu-gw-MsE">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="fyX-oS-zhe"/>
+                                    <constraint firstAttribute="height" constant="45" id="z5L-sw-uUZ"/>
+                                </constraints>
                                 <state key="normal" title="Photo"/>
                                 <connections>
                                     <action selector="photoButton:" destination="Mgb-77-rrl" eventType="touchUpInside" id="fLb-NO-Xey"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7D-UY-Odf">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Green">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeColorButton:" destination="Mgb-77-rrl" eventType="touchUpInside" id="2s3-qL-bhM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvn-25-hx8">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Blue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeColorButton:" destination="Mgb-77-rrl" eventType="touchUpInside" id="nel-co-Bjk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1W-XO-h7c">
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="MfQ-0D-24e"/>
+                                    <constraint firstAttribute="height" constant="45" id="maP-Gy-0Ho"/>
+                                </constraints>
+                                <state key="normal" title="Red">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeColorButton:" destination="Mgb-77-rrl" eventType="touchUpInside" id="mEo-vG-wGd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="rvn-25-hx8" firstAttribute="top" secondItem="A7D-UY-Odf" secondAttribute="bottom" constant="5" id="4fe-24-7bP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v1W-XO-h7c" secondAttribute="trailing" id="4jd-nE-HHG"/>
                             <constraint firstItem="8nq-OX-XNB" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" id="7Ge-zN-8le"/>
+                            <constraint firstItem="rvn-25-hx8" firstAttribute="width" secondItem="v1W-XO-h7c" secondAttribute="width" id="98p-QX-BUD"/>
                             <constraint firstItem="8nq-OX-XNB" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leading" id="Bog-9k-XuK"/>
                             <constraint firstAttribute="trailing" secondItem="SnJ-o7-Lqb" secondAttribute="trailing" id="Cx5-bt-cbM"/>
+                            <constraint firstItem="rvn-25-hx8" firstAttribute="height" secondItem="v1W-XO-h7c" secondAttribute="height" id="Ihj-CJ-IDc"/>
+                            <constraint firstItem="sbu-gw-MsE" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" constant="26" id="Iws-L8-Gox"/>
                             <constraint firstAttribute="bottom" secondItem="SnJ-o7-Lqb" secondAttribute="bottom" id="Kkt-7o-rwc"/>
                             <constraint firstItem="S9V-5Y-pDH" firstAttribute="top" secondItem="Idg-Ld-mG2" secondAttribute="top" id="P5U-12-XXD"/>
-                            <constraint firstItem="sbu-gw-MsE" firstAttribute="top" secondItem="Y9k-h2-4Wx" secondAttribute="bottom" constant="26" id="Pqa-h7-ymQ"/>
                             <constraint firstItem="S9V-5Y-pDH" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leading" id="RFg-Gn-Eao"/>
                             <constraint firstAttribute="trailing" secondItem="8nq-OX-XNB" secondAttribute="trailing" id="Wj0-n2-Hk4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sbu-gw-MsE" secondAttribute="trailing" constant="15" id="ZXm-Hr-t5d"/>
+                            <constraint firstItem="A7D-UY-Odf" firstAttribute="width" secondItem="v1W-XO-h7c" secondAttribute="width" id="deh-Pi-hKa"/>
                             <constraint firstItem="SnJ-o7-Lqb" firstAttribute="top" secondItem="Idg-Ld-mG2" secondAttribute="top" id="dhn-bL-819"/>
+                            <constraint firstItem="A7D-UY-Odf" firstAttribute="top" secondItem="v1W-XO-h7c" secondAttribute="bottom" constant="5" id="e4b-q8-Q6o"/>
                             <constraint firstAttribute="bottom" secondItem="S9V-5Y-pDH" secondAttribute="bottom" id="fSY-2p-EVH"/>
                             <constraint firstAttribute="trailing" secondItem="S9V-5Y-pDH" secondAttribute="trailing" id="fsG-cl-UaR"/>
+                            <constraint firstItem="v1W-XO-h7c" firstAttribute="top" secondItem="sbu-gw-MsE" secondAttribute="bottom" constant="5" id="gfq-sr-f9N"/>
                             <constraint firstItem="lSJ-jH-60v" firstAttribute="top" secondItem="8nq-OX-XNB" secondAttribute="bottom" id="j2g-n6-6HV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A7D-UY-Odf" secondAttribute="trailing" id="oV2-rb-xg9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sbu-gw-MsE" secondAttribute="trailing" id="tLD-3H-X5A"/>
+                            <constraint firstItem="A7D-UY-Odf" firstAttribute="height" secondItem="v1W-XO-h7c" secondAttribute="height" id="tUN-Jh-rgq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rvn-25-hx8" secondAttribute="trailing" id="v4W-FN-SZk"/>
                             <constraint firstItem="SnJ-o7-Lqb" firstAttribute="leading" secondItem="Idg-Ld-mG2" secondAttribute="leading" id="vLr-zI-b29"/>
                         </constraints>
                     </view>
