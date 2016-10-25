@@ -74,7 +74,7 @@
     self.canvasView.center = self.view.center;
     [self.view addSubview:self.canvasView];
     [self.view bringSubviewToFront:self.canvasView];
-    
+
     self.facePoints = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
@@ -144,7 +144,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             CGPoint leftEyePosition = CGPointApplyAffineTransform(faceFeature.leftEyePosition, transform);
             CGPoint rightEyePosition = CGPointApplyAffineTransform(faceFeature.rightEyePosition, transform);
             
-            // 获取在ciImage的左边相对于实际view的坐标
+            // 获取在ciImage的左边相对于实际view的坐标, 待优化（临时征用）
             CGFloat width = self.view.bounds.size.width;
             CGFloat height = self.view.bounds.size.height;
             CGFloat widthScale = width / ciImageSize.width;

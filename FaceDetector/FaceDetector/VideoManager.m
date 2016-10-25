@@ -55,13 +55,8 @@
     self.captureSessionQueue = dispatch_queue_create("dream.facedetector.session.queue", DISPATCH_QUEUE_SERIAL);
     self.videoDataOutputQueue = dispatch_queue_create("dream.facedetector.dataoutput.queue", DISPATCH_QUEUE_SERIAL);
     
-    self.captureSession = [[AVCaptureSession alloc] init];
-    self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
-    self.captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
     
-    self.captureVideoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
-    self.captureConnection = [self.captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
-    
+    self.captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] init];
     self.captureVideoPreviewLayer.frame = _preView.frame;
     self.captureVideoPreviewLayer.position = _preView.center;
     self.captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
@@ -104,7 +99,7 @@
 
 - (void)setup {
 
-    [self cameraToggle];
+    [self changeCamera];
     [self setupPre];
 }
 
@@ -115,21 +110,7 @@
 
 - (void)cameraToggle {
     
-    AVCaptureDevice *currentVideoDevice = self.captureDeviceInput.device;
-    AVCaptureDevicePosition currentPosition = [currentVideoDevice position];
-    
-    switch (currentPosition){
-        case AVCaptureDevicePositionUnspecified:
-            self.devicePosition = AVCaptureDevicePositionFront;
-            break;
-        case AVCaptureDevicePositionBack:
-            self.devicePosition = AVCaptureDevicePositionFront;
-            break;
-        case AVCaptureDevicePositionFront:
-            self.devicePosition = AVCaptureDevicePositionBack;
-            break;
-    }
-    
+    [self changeCamera];
     [self setupPre];
 }
 
@@ -149,12 +130,42 @@
         }
         
         [self.captureSession beginConfiguration];
+        
+        [self reInitSession];
+        [self reInitOutput];
+        
         [self resetupVideoInput];
         [self resetupVideoOutput];
         [self.captureSession commitConfiguration];
         
-        [self.captureSession startRunning];
+        if (![self.captureSession isRunning]) {
+            
+            [self.captureSession startRunning];
+        }
     });
+}
+
+- (void)reInitSession {
+
+    if (self.captureSession) {
+        
+        self.captureSession = nil;
+    }
+    
+    self.captureSession = [[AVCaptureSession alloc] init];
+    self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
+    self.captureVideoPreviewLayer.session =  self.captureSession;
+}
+
+- (void)reInitOutput {
+
+    if (self.captureVideoDataOutput) {
+        
+        self.captureVideoDataOutput = nil;
+    }
+    
+    self.captureVideoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
+    self.captureConnection = [self.captureVideoDataOutput connectionWithMediaType:AVMediaTypeVideo];
 }
 
 - (void)resetupVideoInput {
@@ -195,6 +206,24 @@
     self.captureVideoDataOutput.alwaysDiscardsLateVideoFrames = YES;
     self.captureVideoDataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
     [self.captureVideoDataOutput setSampleBufferDelegate:self queue:self.videoDataOutputQueue];
+}
+
+- (void)changeCamera {
+
+    AVCaptureDevice *currentVideoDevice = self.captureDeviceInput.device;
+    AVCaptureDevicePosition currentPosition = [currentVideoDevice position];
+    
+    switch (currentPosition){
+        case AVCaptureDevicePositionUnspecified:
+            self.devicePosition = AVCaptureDevicePositionFront;
+            break;
+        case AVCaptureDevicePositionBack:
+            self.devicePosition = AVCaptureDevicePositionFront;
+            break;
+        case AVCaptureDevicePositionFront:
+            self.devicePosition = AVCaptureDevicePositionBack;
+            break;
+    }
 }
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate

@@ -99,8 +99,13 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     CIImage *ciImage = [[CIImage alloc] initWithCVPixelBuffer:pixelBuffer
                                                       options:(__bridge NSDictionary *)attachments];
     // 调整ciImage的方向
-//    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
-    ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationLeftMirrored];
+    if (self.videoManager.isFront) {
+        
+        ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
+    } else {
+        
+        ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationLeftMirrored];
+    }
     
     if (attachments) {
         CFRelease(attachments);
