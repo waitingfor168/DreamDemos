@@ -16,8 +16,15 @@
 
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 @property (weak, nonatomic) IBOutlet UIView *PreView;
+@property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *pipImageView;
+
+@property (nonatomic, strong) UIImage *maskImage;
+@property (nonatomic, strong) CALayer *maskLayer;
+
+@property (nonatomic) CIContext *ciContext;
+@property (nonatomic) CIFilter *blurFilter;
 
 @end
 
@@ -45,6 +52,20 @@
 }
 
 - (void)p_initObject {
+    
+    // 图片高斯模糊
+//    UIImage *image = [UIImage imageNamed:@"m0_fg.png"];
+//    self.bgImageView.image = [[self class] coreBlurImage:image withBlurNumber:15];
+    
+    _maskImage = [UIImage imageNamed:@"m0_mask.png"];
+    _maskLayer = [CALayer layer];
+    _maskLayer.frame = CGRectMake(0, 0, 150, 310);
+    _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
+    _pipImageView.layer.mask = _maskLayer;
+    
+    _ciContext = [CIContext contextWithOptions:nil];
+    _blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [_blurFilter setValue:@(10) forKey:@"inputRadius"];
     
     self.videoManager = [VideoManager instanceWithPreview:self.PreView];
     [self.view bringSubviewToFront:self.bgImageView];
@@ -90,13 +111,49 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         CFRelease(attachments);
     }
     
-    @autoreleasepool {
+    if (_blurFilter ) {
+        //设置filter
+        [_blurFilter setValue:ciImage forKey:kCIInputImageKey];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        //模糊图片
+        CIImage *outputImage = [_blurFilter valueForKey:kCIOutputImageKey];
+        
+        @autoreleasepool {
             
-            self.pipImageView.image = [UIImage imageWithCIImage:ciImage];
-        });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                CGRect rect = outputImage.extent;
+                rect.size.width += rect.origin.x * 2;
+                rect.size.height += rect.origin.y * 2;
+                rect.origin.x = 0.0;
+                rect.origin.y = 0.0;
+                
+                struct CGImage *cgImage = [_ciContext createCGImage:outputImage fromRect:rect];
+                self.blurImageView.image = [UIImage imageWithCGImage:cgImage];
+                self.pipImageView.image = [UIImage imageWithCIImage:ciImage];
+                
+                CGImageRelease(cgImage);
+                cgImage = nil;
+            });
+        }
     }
+}
+
+#pragma mark - Unit
+
++(UIImage *)coreBlurImage:(UIImage *)image withBlurNumber:(CGFloat)blur {
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage= [CIImage imageWithCGImage:image.CGImage];
+    //设置filter
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:inputImage forKey:kCIInputImageKey]; [filter setValue:@(blur) forKey: @"inputRadius"];
+    //模糊图片
+    CIImage *result=[filter valueForKey:kCIOutputImageKey];
+    CGImageRef outImage=[context createCGImage:result fromRect:[result extent]];
+    UIImage *blurImage=[UIImage imageWithCGImage:outImage];
+    CGImageRelease(outImage);
+    return blurImage;
 }
 
 @end
