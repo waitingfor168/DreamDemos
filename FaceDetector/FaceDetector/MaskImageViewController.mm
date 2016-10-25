@@ -101,10 +101,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // 调整ciImage的方向
     if (self.videoManager.isFront) {
         
-        ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
+        ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationLeftMirrored];
     } else {
         
-        ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationLeftMirrored];
+        ciImage = [ciImage imageByApplyingOrientation:UIImageOrientationDownMirrored];
     }
     
     if (attachments) {

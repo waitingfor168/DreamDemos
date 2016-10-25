@@ -224,6 +224,8 @@
             self.devicePosition = AVCaptureDevicePositionBack;
             break;
     }
+    
+    self.isFront = currentPosition == AVCaptureDevicePositionFront;
 }
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
