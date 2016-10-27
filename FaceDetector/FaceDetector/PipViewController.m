@@ -8,6 +8,7 @@
 
 #import "PipViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIImage+ReDrew.h"
 #import "VideoManager.h"
 
 @interface PipViewController ()
@@ -51,17 +52,17 @@
     NSLog(@"MemoryWarning !!!");
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self changeStyle:0];
+}
+
 - (void)p_initObject {
     
     // 图片高斯模糊
-//    UIImage *image = [UIImage imageNamed:@"m0_fg.png"];
-//    self.bgImageView.image = [[self class] coreBlurImage:image withBlurNumber:15];
-    
-    _maskImage = [UIImage imageNamed:@"m0_mask.png"];
-    _maskLayer = [CALayer layer];
-    _maskLayer.frame = CGRectMake(0, 0, 150, 310);
-    _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
-    _pipImageView.layer.mask = _maskLayer;
+//    UIImage *image = [UIImage imageNamed:@"HSV.png"];
+//    self.bgImageView.image = [UIImage coreBlurImage:image withBlurNumber:15];
     
     _ciContext = [CIContext contextWithOptions:nil];
     _blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
@@ -139,21 +140,48 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
 }
 
+- (IBAction)savePhotoAction:(UIButton *)sender {
+
+    UIImage *image = [UIImage imageRenderView:self.baseView];
+    
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+}
+
+- (IBAction)touchAction:(UIButton *)sender {
+    
+    [self changeStyle:(int)(sender.tag - 100)];
+}
+
 #pragma mark - Unit
 
-+(UIImage *)coreBlurImage:(UIImage *)image withBlurNumber:(CGFloat)blur {
-    
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage= [CIImage imageWithCGImage:image.CGImage];
-    //设置filter
-    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [filter setValue:inputImage forKey:kCIInputImageKey]; [filter setValue:@(blur) forKey: @"inputRadius"];
-    //模糊图片
-    CIImage *result=[filter valueForKey:kCIOutputImageKey];
-    CGImageRef outImage=[context createCGImage:result fromRect:[result extent]];
-    UIImage *blurImage=[UIImage imageWithCGImage:outImage];
-    CGImageRelease(outImage);
-    return blurImage;
+- (void)changeStyle:(int)style {
+
+    if (style == 0) {
+        
+        float scale = self.view.frame.size.width / 320;
+        _maskImage = [UIImage imageNamed:@"bottle_mask.png"];
+        CGSize size = _maskImage.size;
+        _maskLayer = [CALayer layer];
+        _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
+        _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
+        _pipImageView.layer.mask = _maskLayer;
+        _pipImageView.frame = CGRectMake(50, 30, size.width / scale, size.height / scale);
+        
+        _bgImageView.image = [UIImage imageNamed:@"bottle.png"];
+        
+    } else {
+        
+        float scale = self.view.frame.size.width / 320;
+        _maskImage = [UIImage imageNamed:@"06_heart_mask.png"];
+        CGSize size = _maskImage.size;
+        _maskLayer = [CALayer layer];
+        _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
+        _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
+        _pipImageView.layer.mask = _maskLayer;
+        _pipImageView.frame = CGRectMake(50, 30, size.width / scale, size.height / scale);
+        
+        _bgImageView.image = [UIImage imageNamed:@"06_heart.png"];
+    }
 }
 
 @end

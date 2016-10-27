@@ -8,6 +8,7 @@
 
 #import "MaskImageViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIImage+ReDrew.h"
 #import "VideoManager.h"
 #include "cubeMap.c"
 
@@ -140,7 +141,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (IBAction)photoButton:(id)sender {
     
-    UIImage *image = [self imageRenderView:self.view];
+    UIImage *image = [UIImage imageRenderView:self.view];
     
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
@@ -174,17 +175,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     _colorCubeFilter = [CIFilter filterWithName:@"CIColorCube"];
     [_colorCubeFilter setValue:[NSNumber numberWithFloat:myCube.dimension] forKey:@"inputCubeDimension"];
     [_colorCubeFilter setValue:myData forKey:@"inputCubeData"];
-}
-
-- (UIImage *)imageRenderView:(UIView *)view {
-    
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [UIScreen mainScreen].scale);
-    CGContextRef currnetContext = UIGraphicsGetCurrentContext();
-    [view.layer renderInContext:currnetContext];
-    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
 }
 
 - (void)combinationImage {
