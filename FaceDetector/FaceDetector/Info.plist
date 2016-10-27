@@ -25,7 +25,9 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSCameraUsageDescription</key>
-	<string>允许使用相机</string>
+	<string>Use Camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Use Photo</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
