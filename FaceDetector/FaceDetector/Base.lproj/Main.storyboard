@@ -141,10 +141,10 @@
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b7x-3S-GUE">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKa-mr-5qw">
+                                    <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="film.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKa-mr-5qw">
                                         <frame key="frameInset" minY="20" width="205" height="344"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.69649465460526316" green="0.0" blue="0.0" alpha="0.46481735641891891" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottle.png" translatesAutoresizingMaskIntoConstraints="NO" id="3m9-CC-K86">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -346,6 +346,7 @@
     <resources>
         <image name="bg.jpg" width="700" height="1312"/>
         <image name="bottle.png" width="612" height="612"/>
+        <image name="film.png" width="612" height="612"/>
         <image name="icon-bottle.png" width="120" height="120"/>
         <image name="icon_06_heart.png" width="120" height="120"/>
     </resources>

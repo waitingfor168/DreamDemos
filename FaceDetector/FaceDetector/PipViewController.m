@@ -165,7 +165,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
         _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
         _pipImageView.layer.mask = _maskLayer;
-        _pipImageView.frame = CGRectMake(50, 30, size.width / scale, size.height / scale);
+        _pipImageView.frame = CGRectMake(50, 30, size.width, size.height);
         
         _bgImageView.image = [UIImage imageNamed:@"bottle.png"];
         
@@ -178,7 +178,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
         _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
         _pipImageView.layer.mask = _maskLayer;
-        _pipImageView.frame = CGRectMake(50, 30, size.width / scale, size.height / scale);
+        _pipImageView.frame = CGRectMake(50, 30, size.width, size.height);
         
         _bgImageView.image = [UIImage imageNamed:@"06_heart.png"];
     }
