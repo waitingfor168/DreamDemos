@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "UIImage+ReDrew.h"
 #import "VideoManager.h"
+#import "GPUImage.h"
 
 @interface PipViewController ()
 
@@ -26,6 +27,7 @@
 
 @property (nonatomic) CIContext *ciContext;
 @property (nonatomic) CIFilter *blurFilter;
+@property (nonatomic) GPUImageBilateralFilter *bilateralFilter;
 
 @end
 
@@ -67,6 +69,9 @@
     _ciContext = [CIContext contextWithOptions:nil];
     _blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [_blurFilter setValue:@(10) forKey:@"inputRadius"];
+    
+    _bilateralFilter = [[GPUImageBilateralFilter alloc] init];
+    _bilateralFilter.distanceNormalizationFactor = 8.0;
     
     self.videoManager = [VideoManager instanceWithPreview:self.PreView];
     [self.view bringSubviewToFront:self.bgImageView];
@@ -111,6 +116,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     if (attachments) {
         CFRelease(attachments);
     }
+
     
     if (_blurFilter ) {
         //设置filter
@@ -123,18 +129,36 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
+                //                self.pipImageView.image = [UIImage imageWithCIImage:ciImage];
+                
                 CGRect rect = outputImage.extent;
                 rect.size.width += rect.origin.x * 2;
                 rect.size.height += rect.origin.y * 2;
                 rect.origin.x = 0.0;
                 rect.origin.y = 0.0;
                 
+                // 高斯模糊
                 struct CGImage *cgImage = [_ciContext createCGImage:outputImage fromRect:rect];
                 self.blurImageView.image = [UIImage imageWithCGImage:cgImage];
-                self.pipImageView.image = [UIImage imageWithCIImage:ciImage];
                 
                 CGImageRelease(cgImage);
                 cgImage = nil;
+                
+                // 美颜
+                struct CGImage *cgImageB = [_ciContext createCGImage:ciImage fromRect:rect];
+                
+                GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithCGImage:cgImageB];
+                [stillImageSource addTarget:_bilateralFilter];
+                [_bilateralFilter useNextFrameForImageCapture];
+                [stillImageSource processImage];
+                
+                self.pipImageView.image = [_bilateralFilter imageFromCurrentFramebuffer];
+                
+                CGImageRelease(cgImageB);
+                cgImageB = nil;
+                
+                [stillImageSource removeTarget:_bilateralFilter];
+                stillImageSource = nil;
             });
         }
     }
