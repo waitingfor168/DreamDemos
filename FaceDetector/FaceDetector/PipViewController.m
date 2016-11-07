@@ -196,7 +196,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     } else {
         
         float scale = self.view.frame.size.width / 320;
-        _maskImage = [UIImage imageNamed:@"06_heart_mask.png"];
+        _maskImage = [UIImage imageNamed:@"lace1_mask.png"];
         CGSize size = _maskImage.size;
         _maskLayer = [CALayer layer];
         _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
@@ -204,7 +204,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         _pipImageView.layer.mask = _maskLayer;
         _pipImageView.frame = CGRectMake(50, 30, size.width, size.height);
         
-        _bgImageView.image = [UIImage imageNamed:@"06_heart.png"];
+        _bgImageView.image = [UIImage imageNamed:@"lace1.png"];
     }
 }
 

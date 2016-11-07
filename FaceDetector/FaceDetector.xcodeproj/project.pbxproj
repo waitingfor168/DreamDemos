@@ -15,6 +15,8 @@
 		D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */; };
 		D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */; };
 		D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9531DB7583E00B2D7D9 /* CanvasView.m */; };
+		D20907E81DD0778100655EED /* lace1_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = D20907E61DD0778100655EED /* lace1_mask.png */; };
+		D20907E91DD0778100655EED /* lace1.png in Resources */ = {isa = PBXBuildFile; fileRef = D20907E71DD0778100655EED /* lace1.png */; };
 		D21436971DB9A867006FAE7A /* MaskImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D21436961DB9A867006FAE7A /* MaskImageViewController.mm */; };
 		D21436991DB9BEB0006FAE7A /* cubeMap.c in Sources */ = {isa = PBXBuildFile; fileRef = D21436981DB9BEB0006FAE7A /* cubeMap.c */; };
 		D214CC231DC34E4D00051AFE /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D214CAC81DC34E4C00051AFE /* GLProgram.m */; };
@@ -234,6 +236,8 @@
 		D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceDetectorViewController.m; sourceTree = "<group>"; };
 		D208A9521DB7583E00B2D7D9 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		D208A9531DB7583E00B2D7D9 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
+		D20907E61DD0778100655EED /* lace1_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lace1_mask.png; sourceTree = "<group>"; };
+		D20907E71DD0778100655EED /* lace1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lace1.png; sourceTree = "<group>"; };
 		D21436951DB9A867006FAE7A /* MaskImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskImageViewController.h; sourceTree = "<group>"; };
 		D21436961DB9A867006FAE7A /* MaskImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MaskImageViewController.mm; sourceTree = "<group>"; };
 		D21436981DB9BEB0006FAE7A /* cubeMap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cubeMap.c; sourceTree = "<group>"; };
@@ -1081,6 +1085,8 @@
 		D22B54751DC09422000C5AA1 /* PipCameras */ = {
 			isa = PBXGroup;
 			children = (
+				D20907E61DD0778100655EED /* lace1_mask.png */,
+				D20907E71DD0778100655EED /* lace1.png */,
 				D22B54851DC09482000C5AA1 /* 06_heart_mask.png */,
 				D22B54861DC09482000C5AA1 /* 06_heart.png */,
 				D22B54871DC09482000C5AA1 /* bottle_mask.png */,
@@ -1172,6 +1178,7 @@
 				D22B547A1DC09422000C5AA1 /* HSV.png in Resources */,
 				D22B54921DC09482000C5AA1 /* 06_heart.png in Resources */,
 				D22B547F1DC09422000C5AA1 /* icon003.jpg in Resources */,
+				D20907E91DD0778100655EED /* lace1.png in Resources */,
 				D22B54991DC09482000C5AA1 /* icon_06_heart.png in Resources */,
 				D22B547D1DC09422000C5AA1 /* icon002.jpg in Resources */,
 				D22B54981DC09482000C5AA1 /* film.png in Resources */,
@@ -1183,6 +1190,7 @@
 				D22B54941DC09482000C5AA1 /* bottle.png in Resources */,
 				D22B54961DC09482000C5AA1 /* bubble.png in Resources */,
 				D22B549B1DC09482000C5AA1 /* icon-bubble.png in Resources */,
+				D20907E81DD0778100655EED /* lace1_mask.png in Resources */,
 				D22B547B1DC09422000C5AA1 /* icon001.jpg in Resources */,
 				D22B549E1DC09690000C5AA1 /* m0_fg.png in Resources */,
 				D22B54811DC09422000C5AA1 /* icon004.jpg in Resources */,
