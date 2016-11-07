@@ -91,7 +91,8 @@
     
     if (self.originImage == nil) {
         
-        NSLog(@"===>>:NO Origin Image");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请选择一张图片" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
         return;
     }
     
