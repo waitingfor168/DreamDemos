@@ -11,6 +11,7 @@
 @interface UIImage (ReDrew)
 
 + (UIImage *)imageRenderView:(UIView *)view;
-+ (UIImage *)coreBlurImage:(UIImage *)image withBlurNumber:(CGFloat)blur;
++ (UIImage *)boxblurImage:(UIImage *)image withBlurNumber:(CGFloat)blur; // 推荐
++ (UIImage *)coreBlurImage:(UIImage *)image withBlurNumber:(CGFloat)blur; // 不推荐
 
 @end

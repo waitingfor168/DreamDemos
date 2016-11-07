@@ -17,6 +17,11 @@
 		D208A9541DB7583E00B2D7D9 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = D208A9531DB7583E00B2D7D9 /* CanvasView.m */; };
 		D20907E81DD0778100655EED /* lace1_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = D20907E61DD0778100655EED /* lace1_mask.png */; };
 		D20907E91DD0778100655EED /* lace1.png in Resources */ = {isa = PBXBuildFile; fileRef = D20907E71DD0778100655EED /* lace1.png */; };
+		D20907EC1DD0797800655EED /* PipImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20907EB1DD0797800655EED /* PipImageViewController.m */; };
+		D20907EF1DD07AB600655EED /* SKSCustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20907EE1DD07AB600655EED /* SKSCustomImagePickerController.m */; };
+		D20907F21DD07B7400655EED /* SKSHardwareAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = D20907F11DD07B7400655EED /* SKSHardwareAuthorization.m */; };
+		D20907F51DD08BF500655EED /* photo_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = D20907F31DD08BF500655EED /* photo_mask.png */; };
+		D20907F61DD08BF500655EED /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = D20907F41DD08BF500655EED /* photo.png */; };
 		D21436971DB9A867006FAE7A /* MaskImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D21436961DB9A867006FAE7A /* MaskImageViewController.mm */; };
 		D21436991DB9BEB0006FAE7A /* cubeMap.c in Sources */ = {isa = PBXBuildFile; fileRef = D21436981DB9BEB0006FAE7A /* cubeMap.c */; };
 		D214CC231DC34E4D00051AFE /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D214CAC81DC34E4C00051AFE /* GLProgram.m */; };
@@ -238,6 +243,14 @@
 		D208A9531DB7583E00B2D7D9 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		D20907E61DD0778100655EED /* lace1_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lace1_mask.png; sourceTree = "<group>"; };
 		D20907E71DD0778100655EED /* lace1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lace1.png; sourceTree = "<group>"; };
+		D20907EA1DD0797800655EED /* PipImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipImageViewController.h; sourceTree = "<group>"; };
+		D20907EB1DD0797800655EED /* PipImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PipImageViewController.m; sourceTree = "<group>"; };
+		D20907ED1DD07AB600655EED /* SKSCustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSCustomImagePickerController.h; sourceTree = "<group>"; };
+		D20907EE1DD07AB600655EED /* SKSCustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSCustomImagePickerController.m; sourceTree = "<group>"; };
+		D20907F01DD07B7400655EED /* SKSHardwareAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSHardwareAuthorization.h; sourceTree = "<group>"; };
+		D20907F11DD07B7400655EED /* SKSHardwareAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSHardwareAuthorization.m; sourceTree = "<group>"; };
+		D20907F31DD08BF500655EED /* photo_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_mask.png; sourceTree = "<group>"; };
+		D20907F41DD08BF500655EED /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.png; sourceTree = "<group>"; };
 		D21436951DB9A867006FAE7A /* MaskImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskImageViewController.h; sourceTree = "<group>"; };
 		D21436961DB9A867006FAE7A /* MaskImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MaskImageViewController.mm; sourceTree = "<group>"; };
 		D21436981DB9BEB0006FAE7A /* cubeMap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cubeMap.c; sourceTree = "<group>"; };
@@ -669,6 +682,12 @@
 				D21436961DB9A867006FAE7A /* MaskImageViewController.mm */,
 				D22C8E311DBF355100C044D0 /* PipViewController.h */,
 				D22C8E321DBF355100C044D0 /* PipViewController.m */,
+				D20907ED1DD07AB600655EED /* SKSCustomImagePickerController.h */,
+				D20907EE1DD07AB600655EED /* SKSCustomImagePickerController.m */,
+				D20907F01DD07B7400655EED /* SKSHardwareAuthorization.h */,
+				D20907F11DD07B7400655EED /* SKSHardwareAuthorization.m */,
+				D20907EA1DD0797800655EED /* PipImageViewController.h */,
+				D20907EB1DD0797800655EED /* PipImageViewController.m */,
 				D208A9411DB7197800B2D7D9 /* Main.storyboard */,
 				D208A9441DB7197800B2D7D9 /* Assets.xcassets */,
 				D208A9461DB7197800B2D7D9 /* LaunchScreen.storyboard */,
@@ -1085,6 +1104,8 @@
 		D22B54751DC09422000C5AA1 /* PipCameras */ = {
 			isa = PBXGroup;
 			children = (
+				D20907F31DD08BF500655EED /* photo_mask.png */,
+				D20907F41DD08BF500655EED /* photo.png */,
 				D20907E61DD0778100655EED /* lace1_mask.png */,
 				D20907E71DD0778100655EED /* lace1.png */,
 				D22B54851DC09482000C5AA1 /* 06_heart_mask.png */,
@@ -1170,6 +1191,7 @@
 				D22B54791DC09422000C5AA1 /* bg.jpg in Resources */,
 				D22B54801DC09422000C5AA1 /* icon003.png in Resources */,
 				D22B54931DC09482000C5AA1 /* bottle_mask.png in Resources */,
+				D20907F61DD08BF500655EED /* photo.png in Resources */,
 				D22B54911DC09482000C5AA1 /* 06_heart_mask.png in Resources */,
 				D208A9481DB7197800B2D7D9 /* LaunchScreen.storyboard in Resources */,
 				D22B54A01DC0A2E3000C5AA1 /* bottle_mask0.png in Resources */,
@@ -1179,6 +1201,7 @@
 				D22B54921DC09482000C5AA1 /* 06_heart.png in Resources */,
 				D22B547F1DC09422000C5AA1 /* icon003.jpg in Resources */,
 				D20907E91DD0778100655EED /* lace1.png in Resources */,
+				D20907F51DD08BF500655EED /* photo_mask.png in Resources */,
 				D22B54991DC09482000C5AA1 /* icon_06_heart.png in Resources */,
 				D22B547D1DC09422000C5AA1 /* icon002.jpg in Resources */,
 				D22B54981DC09482000C5AA1 /* film.png in Resources */,
@@ -1289,9 +1312,11 @@
 				D214CCA91DC34E4D00051AFE /* GPUImageSoftEleganceFilter.m in Sources */,
 				D214CCB41DC34E4D00051AFE /* GPUImageTextureOutput.m in Sources */,
 				D214CCBD1DC34E4D00051AFE /* GPUImageTwoInputCrossTextureSamplingFilter.m in Sources */,
+				D20907F21DD07B7400655EED /* SKSHardwareAuthorization.m in Sources */,
 				D208A9511DB71A2C00B2D7D9 /* FaceDetectorViewController.m in Sources */,
 				D214CC671DC34E4D00051AFE /* GPUImageHoughTransformLineDetector.m in Sources */,
 				D214CCB51DC34E4D00051AFE /* GPUImageThreeInputFilter.m in Sources */,
+				D20907EF1DD07AB600655EED /* SKSCustomImagePickerController.m in Sources */,
 				D214CCAB1DC34E4D00051AFE /* GPUImageSolarizeFilter.m in Sources */,
 				D214CC6F1DC34E4D00051AFE /* GPUImageLanczosResamplingFilter.m in Sources */,
 				D214CC3B1DC34E4D00051AFE /* GPUImageColorLocalBinaryPatternFilter.m in Sources */,
@@ -1322,6 +1347,7 @@
 				D214CC421DC34E4D00051AFE /* GPUImageCrosshairGenerator.m in Sources */,
 				D214CC471DC34E4D00051AFE /* GPUImageDirectionalNonMaximumSuppressionFilter.m in Sources */,
 				D214CCCC1DC34E4D00051AFE /* GPUImagePicture+TextureSubimage.m in Sources */,
+				D20907EC1DD0797800655EED /* PipImageViewController.m in Sources */,
 				D214CC391DC34E4D00051AFE /* GPUImageColorDodgeBlendFilter.m in Sources */,
 				D214CC801DC34E4D00051AFE /* GPUImageMosaicFilter.m in Sources */,
 				D214CCAF1DC34E4D00051AFE /* GPUImageStillCamera.m in Sources */,
