@@ -182,29 +182,29 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
     if (style == 0) {
         
-        float scale = self.view.frame.size.width / 320;
+        _bgImageView.image = [UIImage imageNamed:@"bottle.png"];
         _maskImage = [UIImage imageNamed:@"bottle_mask.png"];
+        float scale = _bgImageView.image.size.width / self.view.frame.size.width;
+        
         CGSize size = _maskImage.size;
         _maskLayer = [CALayer layer];
         _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
         _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
         _pipImageView.layer.mask = _maskLayer;
-        _pipImageView.frame = CGRectMake(50, 30, size.width, size.height);
-        
-        _bgImageView.image = [UIImage imageNamed:@"bottle.png"];
+        _pipImageView.frame = CGRectMake(60, 60, size.width / scale, size.height / scale);
         
     } else {
         
-        float scale = self.view.frame.size.width / 320;
+        _bgImageView.image = [UIImage imageNamed:@"lace1.png"];
         _maskImage = [UIImage imageNamed:@"lace1_mask.png"];
+        float scale = _bgImageView.image.size.width / self.view.frame.size.width;
+        
         CGSize size = _maskImage.size;
         _maskLayer = [CALayer layer];
         _maskLayer.frame = CGRectMake(0, 0, size.width / scale, size.height / scale);
         _maskLayer.contents = (__bridge id)(_maskImage.CGImage);
         _pipImageView.layer.mask = _maskLayer;
-        _pipImageView.frame = CGRectMake(50, 30, size.width, size.height);
-        
-        _bgImageView.image = [UIImage imageNamed:@"lace1.png"];
+        _pipImageView.frame = CGRectMake(65, 30, size.width / scale, size.height / scale);
     }
 }
 
