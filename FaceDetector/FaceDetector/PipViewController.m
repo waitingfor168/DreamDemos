@@ -129,7 +129,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                //                self.pipImageView.image = [UIImage imageWithCIImage:ciImage];
+                self.pipImageView.image = [UIImage imageWithCIImage:ciImage];
                 
                 CGRect rect = outputImage.extent;
                 rect.size.width += rect.origin.x * 2;
@@ -145,20 +145,20 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                 cgImage = nil;
                 
                 // 美颜
-                struct CGImage *cgImageB = [_ciContext createCGImage:ciImage fromRect:rect];
-                
-                GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithCGImage:cgImageB];
-                [stillImageSource addTarget:_bilateralFilter];
-                [_bilateralFilter useNextFrameForImageCapture];
-                [stillImageSource processImage];
-                
-                self.pipImageView.image = [_bilateralFilter imageFromCurrentFramebuffer];
-                
-                CGImageRelease(cgImageB);
-                cgImageB = nil;
-                
-                [stillImageSource removeTarget:_bilateralFilter];
-                stillImageSource = nil;
+//                struct CGImage *cgImageB = [_ciContext createCGImage:ciImage fromRect:rect];
+//                
+//                GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithCGImage:cgImageB];
+//                [stillImageSource addTarget:_bilateralFilter];
+//                [_bilateralFilter useNextFrameForImageCapture];
+//                [stillImageSource processImage];
+//                
+//                self.pipImageView.image = [_bilateralFilter imageFromCurrentFramebuffer];
+//                
+//                CGImageRelease(cgImageB);
+//                cgImageB = nil;
+//                
+//                [stillImageSource removeTarget:_bilateralFilter];
+//                stillImageSource = nil;
             });
         }
     }

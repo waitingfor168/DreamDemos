@@ -62,7 +62,10 @@
 
 - (void)p_setup {
     
-     self.imagePickerController = [SKSCustomImagePickerController customImagePickerControllerWithTarget:self];
+    self.imagePickerController = [SKSCustomImagePickerController customImagePickerControllerWithTarget:self];
+    self.originImage = [UIImage imageNamed:@"bg.jpg"];
+    self.bgImageView.image = _originImage;
+    
 }
 
 - (IBAction)savePhotoAction:(UIButton *)sender {
@@ -85,9 +88,6 @@
 #pragma mark - Unit
 
 - (void)changeStyle:(int)style {
-    
-//    self.originImage = [UIImage imageNamed:@"bg.jpg"];
-//    _bgImageView.image = self.originImage;
     
     if (self.originImage == nil) {
         
