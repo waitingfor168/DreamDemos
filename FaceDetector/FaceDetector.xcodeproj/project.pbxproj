@@ -223,6 +223,7 @@
 		D22B54A01DC0A2E3000C5AA1 /* bottle_mask0.png in Resources */ = {isa = PBXBuildFile; fileRef = D22B549F1DC0A2E3000C5AA1 /* bottle_mask0.png */; };
 		D22C8E331DBF355100C044D0 /* PipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22C8E321DBF355100C044D0 /* PipViewController.m */; };
 		D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D241E88E1DB8C8F70013F16D /* VideoManager.m */; };
+		D2A004761DD9AA2F007B5293 /* ZoomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A004751DD9AA2F007B5293 /* ZoomImage.m */; };
 		D2CEC8C71DC19B940033FB2C /* UIImage+ReDrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */; };
 /* End PBXBuildFile section */
 
@@ -629,6 +630,8 @@
 		D22C8E321DBF355100C044D0 /* PipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PipViewController.m; sourceTree = "<group>"; };
 		D241E88D1DB8C8F70013F16D /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoManager.h; sourceTree = "<group>"; };
 		D241E88E1DB8C8F70013F16D /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoManager.m; sourceTree = "<group>"; };
+		D2A004741DD9AA2F007B5293 /* ZoomImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImage.h; sourceTree = "<group>"; };
+		D2A004751DD9AA2F007B5293 /* ZoomImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImage.m; sourceTree = "<group>"; };
 		D2CEC8C51DC19B940033FB2C /* UIImage+ReDrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ReDrew.h"; sourceTree = "<group>"; };
 		D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ReDrew.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -675,6 +678,8 @@
 				D241E88E1DB8C8F70013F16D /* VideoManager.m */,
 				D208A9521DB7583E00B2D7D9 /* CanvasView.h */,
 				D208A9531DB7583E00B2D7D9 /* CanvasView.m */,
+				D2A004741DD9AA2F007B5293 /* ZoomImage.h */,
+				D2A004751DD9AA2F007B5293 /* ZoomImage.m */,
 				D21436981DB9BEB0006FAE7A /* cubeMap.c */,
 				D208A94F1DB71A2C00B2D7D9 /* FaceDetectorViewController.h */,
 				D208A9501DB71A2C00B2D7D9 /* FaceDetectorViewController.m */,
@@ -1363,6 +1368,7 @@
 				D214CCA21DC34E4D00051AFE /* GPUImageSharpenFilter.m in Sources */,
 				D214CC611DC34E4D00051AFE /* GPUImageHighlightShadowFilter.m in Sources */,
 				D214CCBC1DC34E4D00051AFE /* GPUImageTransformFilter.m in Sources */,
+				D2A004761DD9AA2F007B5293 /* ZoomImage.m in Sources */,
 				D214CC3D1DC34E4D00051AFE /* GPUImageColorPackingFilter.m in Sources */,
 				D22C8E331DBF355100C044D0 /* PipViewController.m in Sources */,
 				D214CC561DC34E4D00051AFE /* GPUImageFramebufferCache.m in Sources */,

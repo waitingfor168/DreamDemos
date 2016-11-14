@@ -9,6 +9,7 @@
 #import "PipImageViewController.h"
 #import "SKSCustomImagePickerController.h"
 #import "UIImage+ReDrew.h"
+#import "ZoomImage.h"
 
 @interface PipImageViewController () <SKSCustomImagePickerControllerDelegate>
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *pipImageView;
+@property (weak, nonatomic) IBOutlet ZoomImage *pipImageView;
 
 @property (nonatomic, strong) UIImage *originImage;
 @property (nonatomic, strong) UIImage *maskImage;
@@ -126,7 +127,7 @@
     UIImage *brImage = [UIImage boxblurImage:self.originImage withBlurNumber:30];
     
     self.blurImageView.image = brImage;
-    self.pipImageView.image = self.originImage;
+    [self.pipImageView setImage:self.originImage];
 }
 
 #pragma mark - SKSCustomImagePickerControllerDelegate
