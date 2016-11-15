@@ -44,18 +44,21 @@
 
 - (void)p_initView {
     
-    _scrollview=[[UIScrollView alloc]initWithFrame:self.bounds];
+    _scrollview = [[UIScrollView alloc]initWithFrame:self.bounds];
+    _scrollview.showsVerticalScrollIndicator = NO;
+    _scrollview.showsHorizontalScrollIndicator = NO;
+    _scrollview.backgroundColor = [UIColor clearColor];
     [self addSubview:_scrollview];
     
-    _imageview=[[UIImageView alloc]initWithImage:_image];
+    _imageview = [[UIImageView alloc]initWithImage:_image];
     [_scrollview addSubview:_imageview];
     
     _scrollview.contentSize=_image.size;
     
     _scrollview.delegate=self;
     _scrollview.maximumZoomScale=2.0;
-    _scrollview.minimumZoomScale=0.5;
-    _scrollview.zoomScale = 0.5;
+    _scrollview.minimumZoomScale=0.6;
+    _scrollview.zoomScale = 0.6;
 }
 
 #pragma mark - UIScrollViewDelegate

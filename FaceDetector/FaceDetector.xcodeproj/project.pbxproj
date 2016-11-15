@@ -224,6 +224,9 @@
 		D22C8E331DBF355100C044D0 /* PipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22C8E321DBF355100C044D0 /* PipViewController.m */; };
 		D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D241E88E1DB8C8F70013F16D /* VideoManager.m */; };
 		D2A004761DD9AA2F007B5293 /* ZoomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A004751DD9AA2F007B5293 /* ZoomImage.m */; };
+		D2A4F4381DDAB54E00FF8378 /* film_mask0.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A4F4371DDAB54E00FF8378 /* film_mask0.png */; };
+		D2A4F43B1DDADFF300FF8378 /* UIView+Mask.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4F43A1DDADFF300FF8378 /* UIView+Mask.m */; };
+		D2A4F43D1DDAE5FD00FF8378 /* photo_mask0.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A4F43C1DDAE5FC00FF8378 /* photo_mask0.png */; };
 		D2CEC8C71DC19B940033FB2C /* UIImage+ReDrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */; };
 /* End PBXBuildFile section */
 
@@ -632,6 +635,10 @@
 		D241E88E1DB8C8F70013F16D /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoManager.m; sourceTree = "<group>"; };
 		D2A004741DD9AA2F007B5293 /* ZoomImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImage.h; sourceTree = "<group>"; };
 		D2A004751DD9AA2F007B5293 /* ZoomImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImage.m; sourceTree = "<group>"; };
+		D2A4F4371DDAB54E00FF8378 /* film_mask0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film_mask0.png; sourceTree = "<group>"; };
+		D2A4F4391DDADFF300FF8378 /* UIView+Mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Mask.h"; sourceTree = "<group>"; };
+		D2A4F43A1DDADFF300FF8378 /* UIView+Mask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Mask.m"; sourceTree = "<group>"; };
+		D2A4F43C1DDAE5FC00FF8378 /* photo_mask0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_mask0.png; sourceTree = "<group>"; };
 		D2CEC8C51DC19B940033FB2C /* UIImage+ReDrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ReDrew.h"; sourceTree = "<group>"; };
 		D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ReDrew.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -672,6 +679,8 @@
 				D208A93C1DB7197800B2D7D9 /* AppDelegate.m */,
 				D2CEC8C51DC19B940033FB2C /* UIImage+ReDrew.h */,
 				D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */,
+				D2A4F4391DDADFF300FF8378 /* UIView+Mask.h */,
+				D2A4F43A1DDADFF300FF8378 /* UIView+Mask.m */,
 				D208A93E1DB7197800B2D7D9 /* ViewController.h */,
 				D208A93F1DB7197800B2D7D9 /* ViewController.m */,
 				D241E88D1DB8C8F70013F16D /* VideoManager.h */,
@@ -1109,6 +1118,8 @@
 		D22B54751DC09422000C5AA1 /* PipCameras */ = {
 			isa = PBXGroup;
 			children = (
+				D2A4F43C1DDAE5FC00FF8378 /* photo_mask0.png */,
+				D2A4F4371DDAB54E00FF8378 /* film_mask0.png */,
 				D20907F31DD08BF500655EED /* photo_mask.png */,
 				D20907F41DD08BF500655EED /* photo.png */,
 				D20907E61DD0778100655EED /* lace1_mask.png */,
@@ -1191,7 +1202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D22B547C1DC09422000C5AA1 /* icon001.png in Resources */,
+				D2A4F43D1DDAE5FD00FF8378 /* photo_mask0.png in Resources */,
 				D22B54821DC09422000C5AA1 /* icon004.png in Resources */,
+				D2A4F4381DDAB54E00FF8378 /* film_mask0.png in Resources */,
 				D22B549C1DC09482000C5AA1 /* icon-film.png in Resources */,
 				D22B54791DC09422000C5AA1 /* bg.jpg in Resources */,
 				D22B54801DC09422000C5AA1 /* icon003.png in Resources */,
@@ -1252,6 +1265,7 @@
 				D214CC531DC34E4D00051AFE /* GPUImageFilterPipeline.m in Sources */,
 				D214CC7D1DC34E4D00051AFE /* GPUImageMedianFilter.m in Sources */,
 				D214CC6C1DC34E4D00051AFE /* GPUImageJFAVoronoiFilter.m in Sources */,
+				D2A4F43B1DDADFF300FF8378 /* UIView+Mask.m in Sources */,
 				D214CC991DC34E4D00051AFE /* GPUImageRGBClosingFilter.m in Sources */,
 				D214CC2C1DC34E4D00051AFE /* GPUImageBilateralFilter.m in Sources */,
 				D214CC701DC34E4D00051AFE /* GPUImageLaplacianFilter.m in Sources */,
