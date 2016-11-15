@@ -12,53 +12,43 @@
 
     UIScrollView *_scrollview;
     UIImageView *_imageview;
-    UIImage *_image;
 }
 
 @end
 
 @implementation ZoomImage
 
-+ (instancetype)instanceWithFrame:(CGRect)frame image:(UIImage *)image {
-
-    return [[self alloc] initFrame:frame image:image];
-}
-
-- (instancetype)initFrame:(CGRect)frame image:(UIImage *)image {
-
-    if (self = [super initWithFrame:frame]) {
-        
-        _image = image;
-        
-        [self p_initView];
-    }
-    return self;
-}
-
 - (void)setImage:(UIImage *)image {
 
-    _image = image;
-    
     [self p_initView];
+    
+    if (_imageview) {
+        
+        [_imageview removeFromSuperview];
+    }
+    
+    // UIImageView的宽高即Image的宽高
+    _imageview = [[UIImageView alloc] initWithImage:image];
+    [_scrollview addSubview:_imageview];
+    
+    _scrollview.contentSize = image.size;
 }
 
 - (void)p_initView {
     
-    _scrollview = [[UIScrollView alloc]initWithFrame:self.bounds];
-    _scrollview.showsVerticalScrollIndicator = NO;
-    _scrollview.showsHorizontalScrollIndicator = NO;
-    _scrollview.backgroundColor = [UIColor clearColor];
-    [self addSubview:_scrollview];
-    
-    _imageview = [[UIImageView alloc]initWithImage:_image];
-    [_scrollview addSubview:_imageview];
-    
-    _scrollview.contentSize=_image.size;
-    
-    _scrollview.delegate=self;
-    _scrollview.maximumZoomScale=2.0;
-    _scrollview.minimumZoomScale=0.6;
-    _scrollview.zoomScale = 0.6;
+    if (_scrollview == nil) {
+        
+        _scrollview = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollview.showsVerticalScrollIndicator = NO;
+        _scrollview.showsHorizontalScrollIndicator = NO;
+        _scrollview.backgroundColor = [UIColor clearColor];
+        [self addSubview:_scrollview];
+        
+        _scrollview.delegate=self;
+        _scrollview.maximumZoomScale=2.0;
+        _scrollview.minimumZoomScale=0.6;
+        _scrollview.zoomScale = 0.6;
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

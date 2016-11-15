@@ -10,8 +10,6 @@
 
 @interface ZoomImage : UIView
 
-+ (instancetype)instanceWithFrame:(CGRect)frame image:(UIImage *)image;
-- (instancetype)initFrame:(CGRect)frame image:(UIImage *)image;
 - (void)setImage:(UIImage *)image;
 
 @end
