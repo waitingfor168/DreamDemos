@@ -8,9 +8,18 @@
 
 #import "PipImageViewController.h"
 #import "SKSCustomImagePickerController.h"
+#import "HJScrollSelectorView.h"
 #import "UIImage+ReDrew.h"
 #import "UIView+Mask.h"
 #import "ZoomImage.h"
+
+/** 弱引用 */
+#define WS __weak typeof(self) weakSelf = self;
+#define WeakObj(obj) __weak typeof(obj) weakObj = obj;
+
+/** 强引用 */
+#define SWS __weak typeof(weakSelf) strongSelf = weakSelf;
+#define StrongObj(obj) __strong typeof(obj) strongObj = obj;
 
 @interface PipImageViewController () <SKSCustomImagePickerControllerDelegate>
 
@@ -21,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet ZoomImage *pipImageView;
 
+@property (nonatomic, strong) HJScrollSelectorView *scrollSelectorView;
 @property (nonatomic, strong) UIImage *originImage;
 @property (nonatomic, strong) UIImage *maskImage;
 @property (nonatomic, strong) CALayer *maskLayer;
@@ -32,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"PIP Image";
-    
+
     [self p_initObject];
     [self p_setup];
 }
@@ -68,6 +78,17 @@
     self.originImage = [UIImage imageNamed:@"bg.jpg"];
     self.bgImageView.image = _originImage;
     
+    
+    self.scrollSelectorView = [[HJScrollSelectorView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 80)];
+    [self.scrollSelectorView resource:@[@"icon-film", @"photo", @"icon-film", @"photo", @"icon-film", @"photo", @"icon-film", @"photo"]];
+    [self.scrollSelectorView registerCellName:@"HJImageTableViewCell"];
+    [self.view addSubview:self.scrollSelectorView];
+    
+    WS
+    [self.scrollSelectorView cellTouchedWithBlock:^(id sender) {
+       SWS
+        [strongSelf changeStyle:[sender isEqualToString:@"photo"]];
+    }];
 }
 
 - (IBAction)savePhotoAction:(UIButton *)sender {
@@ -80,11 +101,6 @@
 - (IBAction)selectImage:(id)sender {
 
     [self.imagePickerController openLocalPhoto];
-}
-
-- (IBAction)changeAction:(UIButton *)sender {
-    
-    [self changeStyle:(int)(sender.tag - 200)];
 }
 
 #pragma mark - Unit
