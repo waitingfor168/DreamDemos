@@ -10,7 +10,7 @@
 
 @interface HJImageTableViewCell () {
 
-    UIImageView *_imageView;
+    UIImageView *_iconImageView;
 }
 
 @end
@@ -22,16 +22,24 @@
 
 - (void)p_initView {
     
-    _imageView=[[UIImageView alloc] initWithFrame:CGRectMake(5, 5, CellProtocolHeight - 10, CellProtocolHeight - 10)];
-    _imageView.contentMode = UIViewContentModeScaleToFill;
-    _imageView.backgroundColor = [UIColor lightGrayColor];
-    [self addSubview:_imageView];
+    _iconImageView=[[UIImageView alloc] init];
+    _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _iconImageView.backgroundColor = [UIColor lightGrayColor];
+    _iconImageView.translatesAutoresizingMaskIntoConstraints = false;
+    [self addSubview:_iconImageView];
+    
+    self.viewMaps[@"iconImageView"] = _iconImageView;
+}
+
+- (void)p_addConstraints {
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-3-[iconImageView]-3-|" options:0 metrics:nil views:self.viewMaps]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-3-[iconImageView]-3-|" options:0 metrics:nil views:self.viewMaps]];
 }
 
 - (void)cellWithConent:(id)conent {
 
-    _imageView.image = [UIImage imageNamed:conent];
-    NSLog(@"==>>:%@", conent);
+    _iconImageView.image = [UIImage imageNamed:conent];
 }
 
 @end

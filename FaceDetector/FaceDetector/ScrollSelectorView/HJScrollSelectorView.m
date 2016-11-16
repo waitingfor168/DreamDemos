@@ -14,8 +14,6 @@
     UITableView *_tabelView;
     NSArray *_dataResources;
     NSString *_cellName;
-    
-    CGFloat cellHeight;
 }
 
 @property (nonatomic, copy) TouchedAction touchedAction;
@@ -30,6 +28,7 @@
         
         [self ss_initTableView];
         [self ss_initData];
+        [self cellOrientation:Orientation_Default];
     }
     return self;
 }
@@ -41,7 +40,7 @@
     _tabelView.backgroundColor = [UIColor whiteColor];
     _tabelView.showsHorizontalScrollIndicator = NO;
     _tabelView.showsVerticalScrollIndicator = NO;
-    _tabelView.pagingEnabled = YES;
+    _tabelView.pagingEnabled = NO;
     _tabelView.dataSource = self;
     _tabelView.delegate = self;
     [self addSubview:_tabelView];
@@ -49,9 +48,9 @@
 
 - (void)ss_initData {
 
-    cellHeight = CellProtocolHeight;
-    
-    [self orientation];
+    // 默认
+    _cellHeight = 44;
+    _orientation = Orientation_Default;
 }
 
 #pragma mark - Methods
@@ -70,21 +69,32 @@
     [_tabelView registerClass:cellClass forCellReuseIdentifier:cellName];
 }
 
-- (void)orientation {
 
-    // 居中旋转
+- (void)cellOrientation:(ScrollSelectorViewOrientation)orientation {
+    
+    _orientation = orientation;
+    
     float viewWidth = self.bounds.size.width;
     float viewHeight = self.bounds.size.height;
-    float viewPointx = (viewWidth - viewHeight) / 2;
-    float viewPointy = (viewHeight - viewWidth) / 2;
     
-    _tabelView.frame = CGRectMake(viewPointx, viewPointy, viewHeight, viewWidth);
-    _tabelView.transform = CGAffineTransformMakeRotation(-M_PI_2);
-}
-
-- (void)cellHeight:(CGFloat)height {
-
-    cellHeight = height;
+    switch (orientation) {
+        case Orientation_Left:
+        {
+            // 居中旋转
+            float viewPointx = (viewWidth - viewHeight) / 2;
+            float viewPointy = (viewHeight - viewWidth) / 2;
+            
+            _tabelView.frame = CGRectMake(viewPointx, viewPointy, viewHeight, viewWidth);
+            _tabelView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+        }
+            break;
+            
+        default:
+        {
+            _tabelView.frame = CGRectMake(0, 0, viewWidth, viewHeight);
+        }
+            break;
+    }
 }
 
 - (void)cellTouchedWithBlock:(TouchedAction)sender {
@@ -96,7 +106,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return cellHeight;
+    return self.cellHeight;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -108,7 +118,12 @@
 
     UITableViewCell<HJTableViewCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:_cellName
                                                                                      forIndexPath:indexPath];
+    
+    if (self.orientation == Orientation_Left) {
         
+        cell.transform = CGAffineTransformMakeRotation(M_PI_2);
+    }
+    
     if ([cell respondsToSelector:@selector(cellWithConent:)]) {
         
         [cell cellWithConent:_dataResources[indexPath.row]];

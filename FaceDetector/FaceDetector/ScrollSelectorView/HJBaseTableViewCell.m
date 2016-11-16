@@ -20,16 +20,22 @@
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.transform = CGAffineTransformMakeRotation(M_PI_2);
         self.backgroundColor = [UIColor clearColor];
         
+        self.viewMaps = [NSMutableDictionary dictionary];
+        
+        [self p_initData];
         [self p_initView];
+        [self p_addConstraints];
     }
     return self;
 }
 
 #pragma mark - OverWrite
+
+- (void)p_initData {}
 - (void)p_initView {}
+- (void)p_addConstraints {}
 - (void)cellWithConent:(id)conent {}
 
 @end

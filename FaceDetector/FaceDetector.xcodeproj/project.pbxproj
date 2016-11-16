@@ -231,6 +231,7 @@
 		D2BA5C1F1DDC03BD00A5CB40 /* HJImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BA5C1A1DDC03BC00A5CB40 /* HJImageTableViewCell.m */; };
 		D2BA5C201DDC03BD00A5CB40 /* HJScrollSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BA5C1C1DDC03BD00A5CB40 /* HJScrollSelectorView.m */; };
 		D2CEC8C71DC19B940033FB2C /* UIImage+ReDrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */; };
+		D2DF43AD1DDC3849005B1DFB /* icon_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = D2DF43AC1DDC3849005B1DFB /* icon_photo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -651,6 +652,7 @@
 		D2BA5C1D1DDC03BD00A5CB40 /* HJTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTableViewCellProtocol.h; sourceTree = "<group>"; };
 		D2CEC8C51DC19B940033FB2C /* UIImage+ReDrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ReDrew.h"; sourceTree = "<group>"; };
 		D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ReDrew.m"; sourceTree = "<group>"; };
+		D2DF43AC1DDC3849005B1DFB /* icon_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_photo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1129,6 +1131,7 @@
 		D22B54751DC09422000C5AA1 /* PipCameras */ = {
 			isa = PBXGroup;
 			children = (
+				D2DF43AC1DDC3849005B1DFB /* icon_photo.png */,
 				D2A4F43C1DDAE5FC00FF8378 /* photo_mask0.png */,
 				D2A4F4371DDAB54E00FF8378 /* film_mask0.png */,
 				D20907F31DD08BF500655EED /* photo_mask.png */,
@@ -1232,6 +1235,7 @@
 				D2A4F4381DDAB54E00FF8378 /* film_mask0.png in Resources */,
 				D22B549C1DC09482000C5AA1 /* icon-film.png in Resources */,
 				D22B54791DC09422000C5AA1 /* bg.jpg in Resources */,
+				D2DF43AD1DDC3849005B1DFB /* icon_photo.png in Resources */,
 				D22B54801DC09422000C5AA1 /* icon003.png in Resources */,
 				D22B54931DC09482000C5AA1 /* bottle_mask.png in Resources */,
 				D20907F61DD08BF500655EED /* photo.png in Resources */,

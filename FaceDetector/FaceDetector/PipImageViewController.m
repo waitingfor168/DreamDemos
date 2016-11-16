@@ -79,16 +79,18 @@
     self.bgImageView.image = _originImage;
     
     
-    self.scrollSelectorView = [[HJScrollSelectorView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 80)];
-    [self.scrollSelectorView resource:@[@"icon-film", @"photo", @"icon-film", @"photo", @"icon-film", @"photo", @"icon-film", @"photo"]];
+    self.scrollSelectorView = [[HJScrollSelectorView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    [self.scrollSelectorView resource:@[@"icon-film", @"icon_photo", @"icon-film", @"icon_photo", @"icon-film", @"icon_photo", @"icon-film", @"icon_photo"]];
     [self.scrollSelectorView registerCellName:@"HJImageTableViewCell"];
+    [self.scrollSelectorView setCellHeight:150];
+    [self.scrollSelectorView cellOrientation:Orientation_Left];
     [self.view addSubview:self.scrollSelectorView];
     
     __weak typeof(self) weakSelf = self;
     [self.scrollSelectorView cellTouchedWithBlock:^(id sender) {
         
         __weak typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf changeStyle:[sender isEqualToString:@"photo"]];
+        [strongSelf changeStyle:[sender isEqualToString:@"icon_photo"]];
     }];
 }
 

@@ -11,4 +11,6 @@
 
 @interface HJBaseTableViewCell : UITableViewCell <HJTableViewCellProtocol>
 
+@property (nonatomic, strong) NSMutableDictionary *viewMaps;
+
 @end

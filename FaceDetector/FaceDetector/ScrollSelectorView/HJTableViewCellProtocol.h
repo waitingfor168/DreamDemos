@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define CellProtocolHeight 80
-
 @protocol HJTableViewCellProtocol <NSObject>
 
 @required
