@@ -84,9 +84,10 @@
     [self.scrollSelectorView registerCellName:@"HJImageTableViewCell"];
     [self.view addSubview:self.scrollSelectorView];
     
-    WS
+    __weak typeof(self) weakSelf = self;
     [self.scrollSelectorView cellTouchedWithBlock:^(id sender) {
-       SWS
+        
+        __weak typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf changeStyle:[sender isEqualToString:@"photo"]];
     }];
 }

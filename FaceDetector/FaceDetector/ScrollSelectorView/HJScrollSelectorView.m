@@ -36,11 +36,7 @@
 
 - (void)ss_initTableView {
     
-    float viewWidth = self.bounds.size.width;
-    float viewHeight = self.bounds.size.height;
-    CGRect viewRect = CGRectMake((viewWidth - viewHeight) / 2, (viewHeight - viewWidth) / 2, viewHeight, viewWidth);
-    
-    _tabelView = [[UITableView alloc] initWithFrame:viewRect];
+    _tabelView = [[UITableView alloc] initWithFrame:CGRectZero];
     _tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tabelView.backgroundColor = [UIColor whiteColor];
     _tabelView.showsHorizontalScrollIndicator = NO;
@@ -76,6 +72,13 @@
 
 - (void)orientation {
 
+    // 居中旋转
+    float viewWidth = self.bounds.size.width;
+    float viewHeight = self.bounds.size.height;
+    float viewPointx = (viewWidth - viewHeight) / 2;
+    float viewPointy = (viewHeight - viewWidth) / 2;
+    
+    _tabelView.frame = CGRectMake(viewPointx, viewPointy, viewHeight, viewWidth);
     _tabelView.transform = CGAffineTransformMakeRotation(-M_PI_2);
 }
 

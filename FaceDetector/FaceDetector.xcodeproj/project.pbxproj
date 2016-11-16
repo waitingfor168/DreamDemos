@@ -227,9 +227,9 @@
 		D2A4F4381DDAB54E00FF8378 /* film_mask0.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A4F4371DDAB54E00FF8378 /* film_mask0.png */; };
 		D2A4F43B1DDADFF300FF8378 /* UIView+Mask.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4F43A1DDADFF300FF8378 /* UIView+Mask.m */; };
 		D2A4F43D1DDAE5FD00FF8378 /* photo_mask0.png in Resources */ = {isa = PBXBuildFile; fileRef = D2A4F43C1DDAE5FC00FF8378 /* photo_mask0.png */; };
-		D2A4F4401DDB079400FF8378 /* HJScrollSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4F43F1DDB079400FF8378 /* HJScrollSelectorView.m */; };
-		D2A4F4431DDB0DEF00FF8378 /* HJBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4F4421DDB0DEF00FF8378 /* HJBaseTableViewCell.m */; };
-		D2A4F4491DDB127B00FF8378 /* HJImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4F4481DDB127B00FF8378 /* HJImageTableViewCell.m */; };
+		D2BA5C1E1DDC03BD00A5CB40 /* HJBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BA5C181DDC03BC00A5CB40 /* HJBaseTableViewCell.m */; };
+		D2BA5C1F1DDC03BD00A5CB40 /* HJImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BA5C1A1DDC03BC00A5CB40 /* HJImageTableViewCell.m */; };
+		D2BA5C201DDC03BD00A5CB40 /* HJScrollSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BA5C1C1DDC03BD00A5CB40 /* HJScrollSelectorView.m */; };
 		D2CEC8C71DC19B940033FB2C /* UIImage+ReDrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */; };
 /* End PBXBuildFile section */
 
@@ -642,13 +642,13 @@
 		D2A4F4391DDADFF300FF8378 /* UIView+Mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Mask.h"; sourceTree = "<group>"; };
 		D2A4F43A1DDADFF300FF8378 /* UIView+Mask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Mask.m"; sourceTree = "<group>"; };
 		D2A4F43C1DDAE5FC00FF8378 /* photo_mask0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_mask0.png; sourceTree = "<group>"; };
-		D2A4F43E1DDB079400FF8378 /* HJScrollSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJScrollSelectorView.h; sourceTree = "<group>"; };
-		D2A4F43F1DDB079400FF8378 /* HJScrollSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJScrollSelectorView.m; sourceTree = "<group>"; };
-		D2A4F4411DDB0DEF00FF8378 /* HJBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJBaseTableViewCell.h; sourceTree = "<group>"; };
-		D2A4F4421DDB0DEF00FF8378 /* HJBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJBaseTableViewCell.m; sourceTree = "<group>"; };
-		D2A4F4461DDB0F2300FF8378 /* HJTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTableViewCellProtocol.h; sourceTree = "<group>"; };
-		D2A4F4471DDB127B00FF8378 /* HJImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJImageTableViewCell.h; sourceTree = "<group>"; };
-		D2A4F4481DDB127B00FF8378 /* HJImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJImageTableViewCell.m; sourceTree = "<group>"; };
+		D2BA5C171DDC03BC00A5CB40 /* HJBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJBaseTableViewCell.h; sourceTree = "<group>"; };
+		D2BA5C181DDC03BC00A5CB40 /* HJBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJBaseTableViewCell.m; sourceTree = "<group>"; };
+		D2BA5C191DDC03BC00A5CB40 /* HJImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJImageTableViewCell.h; sourceTree = "<group>"; };
+		D2BA5C1A1DDC03BC00A5CB40 /* HJImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJImageTableViewCell.m; sourceTree = "<group>"; };
+		D2BA5C1B1DDC03BD00A5CB40 /* HJScrollSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJScrollSelectorView.h; sourceTree = "<group>"; };
+		D2BA5C1C1DDC03BD00A5CB40 /* HJScrollSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJScrollSelectorView.m; sourceTree = "<group>"; };
+		D2BA5C1D1DDC03BD00A5CB40 /* HJTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTableViewCellProtocol.h; sourceTree = "<group>"; };
 		D2CEC8C51DC19B940033FB2C /* UIImage+ReDrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ReDrew.h"; sourceTree = "<group>"; };
 		D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ReDrew.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -689,15 +689,9 @@
 				D208A93C1DB7197800B2D7D9 /* AppDelegate.m */,
 				D2CEC8C51DC19B940033FB2C /* UIImage+ReDrew.h */,
 				D2CEC8C61DC19B940033FB2C /* UIImage+ReDrew.m */,
+				D2BA5C161DDC03BC00A5CB40 /* ScrollSelectorView */,
 				D2A4F4391DDADFF300FF8378 /* UIView+Mask.h */,
 				D2A4F43A1DDADFF300FF8378 /* UIView+Mask.m */,
-				D2A4F43E1DDB079400FF8378 /* HJScrollSelectorView.h */,
-				D2A4F43F1DDB079400FF8378 /* HJScrollSelectorView.m */,
-				D2A4F4411DDB0DEF00FF8378 /* HJBaseTableViewCell.h */,
-				D2A4F4421DDB0DEF00FF8378 /* HJBaseTableViewCell.m */,
-				D2A4F4471DDB127B00FF8378 /* HJImageTableViewCell.h */,
-				D2A4F4481DDB127B00FF8378 /* HJImageTableViewCell.m */,
-				D2A4F4461DDB0F2300FF8378 /* HJTableViewCellProtocol.h */,
 				D208A93E1DB7197800B2D7D9 /* ViewController.h */,
 				D208A93F1DB7197800B2D7D9 /* ViewController.m */,
 				D241E88D1DB8C8F70013F16D /* VideoManager.h */,
@@ -1159,6 +1153,20 @@
 			path = PipCameras;
 			sourceTree = "<group>";
 		};
+		D2BA5C161DDC03BC00A5CB40 /* ScrollSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				D2BA5C1B1DDC03BD00A5CB40 /* HJScrollSelectorView.h */,
+				D2BA5C1C1DDC03BD00A5CB40 /* HJScrollSelectorView.m */,
+				D2BA5C171DDC03BC00A5CB40 /* HJBaseTableViewCell.h */,
+				D2BA5C181DDC03BC00A5CB40 /* HJBaseTableViewCell.m */,
+				D2BA5C191DDC03BC00A5CB40 /* HJImageTableViewCell.h */,
+				D2BA5C1A1DDC03BC00A5CB40 /* HJImageTableViewCell.m */,
+				D2BA5C1D1DDC03BD00A5CB40 /* HJTableViewCellProtocol.h */,
+			);
+			path = ScrollSelectorView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1372,7 +1380,6 @@
 				D214CC2F1DC34E4D00051AFE /* GPUImageBuffer.m in Sources */,
 				D214CC6A1DC34E4D00051AFE /* GPUImageHueFilter.m in Sources */,
 				D214CC491DC34E4D00051AFE /* GPUImageDissolveBlendFilter.m in Sources */,
-				D2A4F4401DDB079400FF8378 /* HJScrollSelectorView.m in Sources */,
 				D214CC5D1DC34E4D00051AFE /* GPUImageHalftoneFilter.m in Sources */,
 				D214CC3C1DC34E4D00051AFE /* GPUImageColorMatrixFilter.m in Sources */,
 				D241E88F1DB8C8F70013F16D /* VideoManager.m in Sources */,
@@ -1399,7 +1406,6 @@
 				D214CC571DC34E4D00051AFE /* GPUImageGammaFilter.m in Sources */,
 				D214CCA21DC34E4D00051AFE /* GPUImageSharpenFilter.m in Sources */,
 				D214CC611DC34E4D00051AFE /* GPUImageHighlightShadowFilter.m in Sources */,
-				D2A4F4491DDB127B00FF8378 /* HJImageTableViewCell.m in Sources */,
 				D214CCBC1DC34E4D00051AFE /* GPUImageTransformFilter.m in Sources */,
 				D2A004761DD9AA2F007B5293 /* ZoomImage.m in Sources */,
 				D214CC3D1DC34E4D00051AFE /* GPUImageColorPackingFilter.m in Sources */,
@@ -1416,6 +1422,7 @@
 				D214CC311DC34E4D00051AFE /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				D214CC881DC34E4D00051AFE /* GPUImageNormalBlendFilter.m in Sources */,
 				D214CC8B1DC34E4D00051AFE /* GPUImageOutput.m in Sources */,
+				D2BA5C201DDC03BD00A5CB40 /* HJScrollSelectorView.m in Sources */,
 				D214CC601DC34E4D00051AFE /* GPUImageHazeFilter.m in Sources */,
 				D214CC2A1DC34E4D00051AFE /* GPUImageAverageColor.m in Sources */,
 				D214CC641DC34E4D00051AFE /* GPUImageHistogramEqualizationFilter.m in Sources */,
@@ -1434,12 +1441,14 @@
 				D214CCAE1DC34E4D00051AFE /* GPUImageSphereRefractionFilter.m in Sources */,
 				D214CC7E1DC34E4D00051AFE /* GPUImageMissEtikateFilter.m in Sources */,
 				D214CCB11DC34E4D00051AFE /* GPUImageSubtractBlendFilter.m in Sources */,
+				D2BA5C1F1DDC03BD00A5CB40 /* HJImageTableViewCell.m in Sources */,
 				D214CC761DC34E4D00051AFE /* GPUImageLookupFilter.m in Sources */,
 				D214CC511DC34E4D00051AFE /* GPUImageFilter.m in Sources */,
 				D214CC951DC34E4D00051AFE /* GPUImagePosterizeFilter.m in Sources */,
 				D214CC851DC34E4D00051AFE /* GPUImageMultiplyBlendFilter.m in Sources */,
 				D214CC921DC34E4D00051AFE /* GPUImagePoissonBlendFilter.m in Sources */,
 				D214CCCD1DC34E4D00051AFE /* GPUImagePicture.m in Sources */,
+				D2BA5C1E1DDC03BD00A5CB40 /* HJBaseTableViewCell.m in Sources */,
 				D214CC791DC34E4D00051AFE /* GPUImageLuminanceThresholdFilter.m in Sources */,
 				D214CC581DC34E4D00051AFE /* GPUImageGaussianBlurFilter.m in Sources */,
 				D214CC3F1DC34E4D00051AFE /* GPUImageColourFASTSamplingOperation.m in Sources */,
@@ -1449,7 +1458,6 @@
 				D214CC5E1DC34E4D00051AFE /* GPUImageHardLightBlendFilter.m in Sources */,
 				D214CC811DC34E4D00051AFE /* GPUImageMotionBlurFilter.m in Sources */,
 				D214CCB71DC34E4D00051AFE /* GPUImageThresholdedNonMaximumSuppressionFilter.m in Sources */,
-				D2A4F4431DDB0DEF00FF8378 /* HJBaseTableViewCell.m in Sources */,
 				D214CCC21DC34E4D00051AFE /* GPUImageUnsharpMaskFilter.m in Sources */,
 				D214CC2B1DC34E4D00051AFE /* GPUImageAverageLuminanceThresholdFilter.m in Sources */,
 			);
